@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fantastic Hair — Ihre neue Website</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-1PKPJZGVBQ"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1PKPJZGVBQ');</script>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+:root{--gold:#C5A377;--gold-light:rgba(197,163,119,.12);--gold-border:rgba(197,163,119,.2);--bg:#0F0F0F;--bg2:#161616;--cream:#F9F4EE;--gray:#9A8E80;--gray2:#3A3530;--line:rgba(255,255,255,.06);}
+html{scroll-behavior:smooth;}
+body{font-family:'Inter',sans-serif;background:var(--bg);color:var(--cream);-webkit-font-smoothing:antialiased;line-height:1.7;overflow-x:hidden;}
+nav{position:fixed;top:0;left:0;right:0;z-index:900;height:68px;display:flex;align-items:center;padding:0 48px;background:rgba(15,15,15,.92);backdrop-filter:blur(24px);border-bottom:1px solid var(--line);}
+.nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;}
+.nav-logo img{height:36px;width:auto;object-fit:contain;filter:drop-shadow(0 0 8px rgba(197,163,119,.3));}
+.nav-logo-text{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--cream);letter-spacing:.06em;}
+.nav-cta{margin-left:auto;font-size:13px;font-weight:500;color:var(--bg);background:var(--gold);padding:9px 22px;text-decoration:none;letter-spacing:.04em;transition:opacity .2s;}
+.nav-cta:hover{opacity:.85;}
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:100px 40px 80px;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% 40%,rgba(197,163,119,.05) 0%,transparent 70%);pointer-events:none;}
+.hero-badge{font-size:10px;font-weight:600;letter-spacing:.25em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:10px;justify-content:center;margin-bottom:32px;opacity:0;animation:fadeUp .8s .1s forwards;}
+.hero-badge::before,.hero-badge::after{content:'';width:28px;height:1px;background:var(--gold);}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(52px,8vw,96px);font-weight:300;line-height:1.05;color:var(--cream);margin-bottom:20px;opacity:0;animation:fadeUp .8s .25s forwards;}
+.hero h1 em{font-style:italic;color:var(--gold);}
+.hero-sub{font-size:16px;font-weight:300;color:var(--gray);max-width:480px;margin:0 auto 16px;opacity:0;animation:fadeUp .8s .4s forwards;}
+.hero-loc{font-size:12px;font-weight:500;letter-spacing:.15em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp .8s .5s forwards;margin-bottom:44px;}
+.hero-actions{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0;animation:fadeUp .8s .6s forwards;}
+.btn-primary{font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--bg);background:var(--gold);padding:15px 36px;text-decoration:none;text-transform:uppercase;transition:opacity .2s;}
+.btn-primary:hover{opacity:.85;}
+.btn-ghost{font-size:13px;font-weight:400;letter-spacing:.06em;color:var(--cream);border:1px solid var(--gold-border);padding:15px 36px;text-decoration:none;text-transform:uppercase;transition:border-color .2s,color .2s;}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold);}
+.section{padding:80px 40px;max-width:1100px;margin:0 auto;}
+.section-label{font-size:10px;font-weight:600;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:10px;}
+.section-label::before{content:'';width:20px;height:1px;background:var(--gold);}
+.section h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:400;color:var(--cream);margin-bottom:10px;}
+.section p{font-size:15px;color:var(--gray);margin-bottom:36px;}
+.mockup-frame{position:relative;border:1px solid var(--gold-border);background:var(--bg2);overflow:hidden;}
+.mockup-bar{height:32px;background:var(--bg2);border-bottom:1px solid var(--line);display:flex;align-items:center;padding:0 14px;gap:6px;}
+.mockup-bar span{width:10px;height:10px;border-radius:50%;background:var(--gray2);}
+.mockup-frame img{width:100%;height:auto;display:block;opacity:.93;}
+.mockup-caption{text-align:center;font-size:12px;color:var(--gray);padding:14px;font-style:italic;}
+.features-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1px;background:var(--line);margin-top:48px;}
+.feature-card{background:var(--bg);padding:40px 32px;transition:background .3s;}
+.feature-card:hover{background:var(--bg2);}
+.feature-icon{font-size:26px;margin-bottom:18px;}
+.feature-card h3{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--cream);margin-bottom:8px;}
+.feature-card p{font-size:14px;color:var(--gray);line-height:1.7;margin-bottom:0;}
+.cta-banner{margin:0 40px 80px;background:var(--gold-light);border:1px solid var(--gold-border);padding:60px 40px;text-align:center;}
+.cta-banner h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,46px);font-weight:400;color:var(--cream);margin-bottom:14px;}
+.cta-banner p{font-size:15px;color:var(--gray);margin-bottom:36px;max-width:500px;margin-left:auto;margin-right:auto;}
+.contact-wrap{max-width:640px;margin:0 auto;padding:0 40px 80px;}
+.contact-wrap h2{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,42px);font-weight:400;color:var(--cream);margin-bottom:8px;}
+.contact-sub{font-size:15px;color:var(--gray);margin-bottom:40px;}
+.form-group{margin-bottom:22px;}
+.form-group label{display:block;font-size:11px;font-weight:500;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:7px;}
+.form-group input,.form-group textarea{width:100%;background:var(--bg2);border:1px solid var(--gray2);color:var(--cream);font-family:'Inter',sans-serif;font-size:14px;padding:12px 15px;outline:none;transition:border-color .2s;border-radius:0;-webkit-appearance:none;}
+.form-group input:focus,.form-group textarea:focus{border-color:var(--gold);}
+.form-group textarea{height:100px;resize:vertical;}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.form-submit{width:100%;font-size:13px;font-weight:500;letter-spacing:.1em;text-transform:uppercase;color:var(--bg);background:var(--gold);border:none;padding:15px;cursor:pointer;transition:opacity .2s;font-family:'Inter',sans-serif;}
+.form-submit:hover{opacity:.85;}
+.form-success{display:none;background:rgba(197,163,119,.08);border:1px solid var(--gold-border);padding:28px 24px;text-align:center;margin-top:20px;}
+.form-success h3{font-family:'Cormorant Garamond',serif;font-size:22px;color:var(--gold);margin-bottom:8px;}
+.form-success p{font-size:14px;color:var(--gray);margin-bottom:0;}
+footer{border-top:1px solid var(--line);padding:28px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:12px;}
+.footer-brand{font-family:'Cormorant Garamond',serif;font-size:16px;color:var(--gray);}
+.footer-links{display:flex;gap:20px;}
+.footer-links a{font-size:12px;color:var(--gray2);text-decoration:none;letter-spacing:.06em;transition:color .2s;}
+.footer-links a:hover{color:var(--cream);}
+.footer-copy{font-size:11px;color:var(--gray2);}
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:none;}
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@media(max-width:700px){
+  nav{padding:0 20px;}
+  .hero{padding:100px 24px 60px;}
+  .section{padding:60px 24px;}
+  .cta-banner{margin:0 24px 60px;padding:48px 24px;}
+  .contact-wrap{padding:0 24px 60px;}
+  .form-row{grid-template-columns:1fr;}
+  footer{padding:24px;flex-direction:column;align-items:flex-start;}
+}
+</style>
+</head>
+<body>
+<nav>
+  <a href="#" class="nav-logo">
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Fantastic Hair" onerror="this.style.display='none'">
+    <span class="nav-logo-text">Fantastic Hair</span>
+  </a>
+  <a href="#kontakt" class="nav-cta">Termin anfragen</a>
+</nav>
+
+<section class="hero">
+  <div>
+    <div class="hero-badge">Friseursalon &middot; Essen</div>
+    <h1>Ihr Stil.<br><em>Perfekt.</em></h1>
+    <p class="hero-sub">Professionelle Haarpflege und persönliche Beratung — genau so, wie Sie es verdienen.</p>
+    <p class="hero-loc">&#128205; Essen</p>
+    <div class="hero-actions">
+      <a href="#kontakt" class="btn-primary">Termin buchen</a>
+      <a href="#mockup" class="btn-ghost">Website ansehen</a>
+    </div>
+  </div>
+</section>
+
+<div class="section" id="mockup">
+  <div class="reveal">
+    <div class="section-label">Ihr digitaler Auftritt</div>
+    <h2>So könnte Ihre Website aussehen</h2>
+    <p>Maßgeschneidert für Fantastic Hair — modern, professionell, überzeugend.</p>
+    <div class="mockup-frame">
+      <div class="mockup-bar"><span></span><span></span><span></span></div>
+      <img src="mockup.png" alt="Website Mockup Fantastic Hair" loading="lazy">
+      <p class="mockup-caption">Designentwurf für Fantastic Hair &middot; Essen &middot; imperamus.de</p>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <div class="reveal" style="text-align:center;margin-bottom:0;">
+    <div class="section-label" style="justify-content:center;">Was Sie bekommen</div>
+    <h2>Alles aus einer Hand</h2>
+    <p style="max-width:520px;margin-left:auto;margin-right:auto;">Eine professionelle Website bringt mehr Kunden, mehr Vertrauen — und mehr Zeit fürs Wesentliche.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card reveal"><div class="feature-icon">&#9984;&#65039;</div><h3>Leistungen präsentieren</h3><p>Schnitt, Farbe, Pflege — übersichtlich und ansprechend für Ihre Kunden dargestellt.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">&#128247;</div><h3>Galerie &amp; Portfolio</h3><p>Ihre besten Arbeiten professionell präsentiert — der überzeugendste Beweis Ihrer Qualität.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">&#128197;</div><h3>Online Terminbuchung</h3><p>Kunden buchen direkt online — rund um die Uhr. Weniger Aufwand, mehr Buchungen.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">&#11088;</div><h3>Bewertungen einbinden</h3><p>Echte Kundenbewertungen integriert — Neukunden sehen sofort, warum Sie die richtige Wahl sind.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">&#128241;</div><h3>Mobil optimiert</h3><p>Perfekt auf jedem Gerät — Smartphone, Tablet, Desktop. Kein Zoomen, kein Scrollen quer.</p></div>
+    <div class="feature-card reveal"><div class="feature-icon">&#128640;</div><h3>In 7 Tagen live</h3><p>Ihre Website ist innerhalb von 7 Tagen fertig und online. Keine versteckten Kosten.</p></div>
+  </div>
+</div>
+
+<div class="cta-banner reveal">
+  <div class="section-label" style="justify-content:center;">Kostenloses Gespräch</div>
+  <h2>Bereit für Ihren neuen Auftritt?</h2>
+  <p>15 Minuten reichen — wir zeigen Ihnen, wie Ihre Website aussehen kann und was sie kostet.</p>
+  <a href="#kontakt" class="btn-primary">Jetzt kostenlos anfragen</a>
+</div>
+
+<div class="contact-wrap" id="kontakt">
+  <div class="section-label">Kontakt</div>
+  <h2>Schreiben Sie uns</h2>
+  <p class="contact-sub">Wir melden uns innerhalb von 24 Stunden. Versprochen.</p>
+  <form id="contactForm" onsubmit="submitForm(event)">
+    <div class="form-row">
+      <div class="form-group"><label>Ihr Name *</label><input type="text" name="name" required placeholder="Max Mustermann"></div>
+      <div class="form-group"><label>Telefon *</label><input type="tel" name="phone" required placeholder="+49 ..."></div>
+    </div>
+    <div class="form-group"><label>E-Mail</label><input type="email" name="email" placeholder="ihre@email.de"></div>
+    <div class="form-group"><label>Nachricht</label><textarea name="message" placeholder="Ich interessiere mich für eine neue Website..."></textarea></div>
+    <button type="submit" class="form-submit">Anfrage senden</button>
+  </form>
+  <div class="form-success" id="formSuccess">
+    <h3>Vielen Dank!</h3>
+    <p>Wir haben Ihre Anfrage erhalten und melden uns innerhalb von 24 Stunden bei Ihnen.</p>
+  </div>
+</div>
+
+<footer>
+  <span class="footer-brand">Fantastic Hair</span>
+  <div class="footer-links">
+    <a href="https://imperamus.de/impressum.html" target="_blank" rel="noopener">Impressum</a>
+    <a href="https://imperamus.de/datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>
+  </div>
+  <span class="footer-copy">&copy; 2026 &middot; Erstellt von imperamus.de</span>
+</footer>
+
+<script>
+(function(){
+  var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Fantastic Hair",ci="Essen";
+  var d=/Mobi|Android/i.test(navigator.userAgent)?"Mobil":"Desktop";
+  fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:"📱 QR-Scan: "+n+" ("+ci+") — "+d+" — "+new Date().toLocaleString('de-DE')})}).catch(function(){});
+})();
+var obs=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting)e.target.classList.add('visible');});},{threshold:0.1});
+document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el);});
+function submitForm(e){
+  e.preventDefault();
+  var f=document.getElementById('contactForm'),fd=new FormData(f);
+  var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Fantastic Hair";
+  var msg="📩 Neue Anfrage
+
+Firma: "+n+"
+Name: "+(fd.get('name')||'')+"
+Telefon: "+(fd.get('phone')||'')+"
+E-Mail: "+(fd.get('email')||'-')+"
+Nachricht: "+(fd.get('message')||'-');
+  fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:msg})}).finally(function(){f.style.display='none';document.getElementById('formSuccess').style.display='block';});
+}
+</script>
+</body>
+</html>
