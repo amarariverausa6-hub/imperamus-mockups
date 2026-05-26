@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friseur Mustermann &#8212; Website-Entwurf | Imperamus</title>
+    <meta name="description" content="Ihr persoenlicher Website-Entwurf fuer Friseur Mustermann in Berlin von Imperamus Webagentur.">
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PKPJZGVBQ"></script>
+    <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1PKPJZGVBQ');</script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@300;400;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+        :root{
+            --bg:#FFFFFF;
+            --bg2:#F8F8F8;
+            --primary:#FF4D4D;
+            --primary-rgb:255,77,77;
+            --text:#111111;
+            --gray:#666666;
+            --card-bg:#ffffff;
+            --card-border:rgba(255,77,77,0.14);
+            --card-shadow:0 4px 24px rgba(0,0,0,0.07);
+            --input-bg:rgba(0,0,0,0.03);
+            --nav-bg:rgba(255,255,255,0.92);
+            --divider:rgba(255,77,77,0.12);
+            --num-color:rgba(255,77,77,0.14);
+            --btn-text:#0A0A0A;
+            --font-head:'Barlow Condensed',Georgia,serif;
+            --font-body:'Inter',system-ui,sans-serif;
+        }
+        html{scroll-behavior:smooth;}
+        body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+        .nav-logo img{height:30px;width:auto;}
+        .nav-logo-text{font-family:var(--font-head);font-size:14px;font-weight:600;color:var(--primary);letter-spacing:.06em;}
+        .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+        .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+        .nav-cta:hover{opacity:.85;transform:translateY(-1px);}
+        .hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
+        .hero-orb1,.hero-orb2{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px);}
+        .hero-orb1{width:500px;height:500px;background:var(--primary);opacity:.12;top:-180px;left:-100px;}
+        .hero-orb2{width:400px;height:400px;background:var(--primary);opacity:.08;bottom:-100px;right:-80px;}
+        .hero-logo{width:240px;height:auto;margin-bottom:32px;position:relative;z-index:1;}
+        .hero-eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:20px;position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:14px;}
+        .hero-eyebrow::before,.hero-eyebrow::after{content:'';width:28px;height:1px;background:var(--primary);opacity:.55;}
+        .hero h1{font-family:var(--font-head);font-size:clamp(36px,6vw,70px);font-weight:400;line-height:1.1;color:var(--text);margin-bottom:18px;position:relative;z-index:1;}
+        .hero h1 .co-name{color:var(--primary);display:block;}
+        .hero-sub{font-size:16px;color:var(--gray);max-width:480px;margin:0 auto 36px;position:relative;z-index:1;}
+        .hero-badge{display:inline-flex;align-items:center;gap:8px;padding:7px 18px;border:1px solid var(--card-border);border-radius:40px;font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;margin-bottom:30px;position:relative;z-index:1;background:rgba(var(--primary-rgb),.05);}
+        .hero-badge span{color:var(--primary);font-weight:600;}
+        .btn-main{display:inline-block;background:var(--primary);color:var(--btn-text);padding:16px 46px;border-radius:4px;text-decoration:none;font-weight:700;font-size:12px;letter-spacing:.14em;text-transform:uppercase;transition:opacity .2s,transform .2s,box-shadow .2s;position:relative;z-index:1;}
+        .btn-main:hover{opacity:.87;transform:translateY(-2px);box-shadow:0 10px 32px rgba(var(--primary-rgb),.3);}
+        .hero-note{margin-top:16px;font-size:11px;color:var(--gray);position:relative;z-index:1;letter-spacing:.04em;}
+        .stats-strip{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--divider);border-bottom:1px solid var(--divider);background:var(--bg2);}
+        .stat-item{padding:30px 16px;text-align:center;border-right:1px solid var(--divider);}
+        .stat-item:last-child{border-right:none;}
+        .stat-num{font-family:var(--font-head);font-size:clamp(28px,4vw,44px);font-weight:600;color:var(--primary);display:block;line-height:1;}
+        .stat-label{font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--gray);margin-top:7px;display:block;}
+        .mockup-section{padding:90px 24px;text-align:center;background:var(--bg);position:relative;}
+        .mockup-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:70px;background:linear-gradient(to bottom,transparent,var(--primary));}
+        .section-label{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--primary);font-weight:600;margin-bottom:14px;}
+        .section-h2{font-family:var(--font-head);font-size:clamp(26px,3.5vw,42px);font-weight:400;color:var(--text);margin-bottom:12px;line-height:1.2;}
+        .section-p{font-size:15px;color:var(--gray);max-width:520px;margin:0 auto 50px;}
+        .mockup-wrap{max-width:1000px;margin:0 auto;position:relative;}
+        .mockup-glow{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:80%;height:80%;background:radial-gradient(ellipse,rgba(var(--primary-rgb),.09) 0%,transparent 65%);pointer-events:none;}
+        .mockup-frame{border:1px solid var(--card-border);border-radius:16px;overflow:hidden;box-shadow:var(--card-shadow);position:relative;z-index:1;background:var(--bg2);}
+        .mockup-img{width:100%;display:block;}
+        .mockup-caption{margin-top:18px;font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--gray);opacity:.6;}
+        .features-section{padding:90px 24px;background:var(--bg2);}
+        .features-inner{max-width:1080px;margin:0 auto;}
+        .features-header{text-align:center;margin-bottom:50px;}
+        .feature-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;}
+        .feature-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:30px 26px;transition:border-color .3s,transform .25s,box-shadow .3s;}
+        .feature-card:hover{border-color:rgba(var(--primary-rgb),.4);transform:translateY(-3px);box-shadow:0 14px 44px rgba(var(--primary-rgb),.12);}
+        .feature-icon{width:46px;height:46px;background:rgba(var(--primary-rgb),.1);border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:18px;}
+        .feature-card h3{font-family:var(--font-head);font-size:15px;font-weight:600;color:var(--text);margin-bottom:8px;}
+        .feature-card p{font-size:13px;color:var(--gray);line-height:1.7;}
+        .steps-section{padding:90px 24px;background:var(--bg);position:relative;}
+        .steps-section::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:1px;height:70px;background:linear-gradient(to bottom,transparent,var(--primary));}
+        .steps-inner{max-width:960px;margin:0 auto;}
+        .steps-header{text-align:center;margin-bottom:50px;}
+        .steps-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+        .step-card{background:var(--card-bg);border:1px solid var(--card-border);border-radius:12px;padding:36px 28px;position:relative;overflow:hidden;transition:border-color .3s,box-shadow .3s;}
+        .step-card:hover{border-color:rgba(var(--primary-rgb),.4);box-shadow:0 10px 36px rgba(var(--primary-rgb),.1);}
+        .step-num{font-family:var(--font-head);font-size:56px;font-weight:700;color:var(--num-color);line-height:1;margin-bottom:18px;display:block;}
+        .step-card h3{font-size:16px;font-weight:600;color:var(--text);margin-bottom:8px;}
+        .step-card p{font-size:13px;color:var(--gray);line-height:1.7;}
+        .step-bar{position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--primary);transition:width .4s ease;}
+        .step-card:hover .step-bar{width:100%;}
+        .cta-band{padding:90px 24px;text-align:center;background:var(--bg2);position:relative;overflow:hidden;}
+        .cta-band-orb{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:700px;height:300px;background:radial-gradient(ellipse,rgba(var(--primary-rgb),.07) 0%,transparent 70%);pointer-events:none;}
+        .cta-band h2{font-family:var(--font-head);font-size:clamp(26px,4vw,46px);font-weight:400;color:var(--text);margin-bottom:14px;position:relative;z-index:1;}
+        .cta-band p{font-size:16px;color:var(--gray);max-width:500px;margin:0 auto 36px;position:relative;z-index:1;}
+        .cta-note{margin-top:18px;font-size:12px;color:var(--gray);position:relative;z-index:1;}
+        .cta-note a{color:var(--primary);text-decoration:none;}
+        .contact-section{padding:90px 24px;max-width:560px;margin:0 auto;}
+        .contact-header{text-align:center;margin-bottom:40px;}
+        .form-row{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+        .form-field{margin-bottom:12px;}
+        .form-field input,.form-field textarea{width:100%;padding:14px 18px;border:1px solid var(--card-border);border-radius:6px;font-size:14px;font-family:var(--font-body);background:var(--input-bg);color:var(--text);transition:border-color .2s,background .2s;}
+        .form-field input::placeholder,.form-field textarea::placeholder{color:var(--gray);}
+        .form-field input:focus,.form-field textarea:focus{outline:none;border-color:var(--primary);background:var(--card-bg);}
+        .form-field textarea{resize:vertical;min-height:90px;}
+        .form-btn{width:100%;padding:15px;background:var(--primary);color:var(--btn-text);border:none;border-radius:4px;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;transition:opacity .2s,transform .15s;font-family:var(--font-body);margin-top:6px;}
+        .form-btn:hover{opacity:.86;transform:translateY(-1px);}
+        .form-btn:disabled{opacity:.4;cursor:not-allowed;transform:none;}
+        .success-box{display:none;text-align:center;padding:50px 0;}
+        .success-icon{width:64px;height:64px;border:2px solid var(--primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:28px;color:var(--primary);margin:0 auto 18px;}
+        .success-title{font-family:var(--font-head);font-size:22px;color:var(--text);}
+        .success-sub{font-size:14px;color:var(--gray);margin-top:8px;}
+        .trust{padding:28px 24px;text-align:center;border-top:1px solid var(--divider);}
+        .trust p{font-size:13px;color:var(--gray);max-width:520px;margin:0 auto;}
+        .trust span{color:var(--primary);font-weight:500;}
+        footer{background:var(--bg2);padding:40px 24px;text-align:center;border-top:1px solid var(--divider);}
+        .footer-links{margin-bottom:10px;display:flex;justify-content:center;gap:24px;flex-wrap:wrap;}
+        .footer-links a{color:var(--primary);text-decoration:none;font-size:13px;transition:opacity .2s;}
+        .footer-links a:hover{opacity:.72;}
+        .legal-links{margin-bottom:10px;display:flex;justify-content:center;gap:22px;}
+        .legal-links a{color:var(--gray);text-decoration:none;font-size:12px;letter-spacing:.06em;transition:color .2s;}
+        .legal-links a:hover{color:var(--primary);}
+        .copyright{font-size:11px;color:var(--gray);letter-spacing:.1em;opacity:.45;}
+        .reveal{opacity:0;transform:translateY(22px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1);}
+        .reveal.visible{opacity:1;transform:none;}
+        .reveal-d1{transition-delay:.08s;}
+        .reveal-d2{transition-delay:.16s;}
+        .reveal-d3{transition-delay:.24s;}
+        .reveal-d4{transition-delay:.32s;}
+        .reveal-d5{transition-delay:.40s;}
+        .reveal-d6{transition-delay:.48s;}
+        @media(max-width:700px){
+            .hero{padding:100px 16px 60px;}
+            .hero-logo{width:200px;}
+            .stats-strip{grid-template-columns:repeat(2,1fr);}
+            .stat-item:nth-child(2){border-right:none;}
+            .mockup-section,.features-section,.steps-section,.cta-band{padding:60px 16px;}
+            .contact-section{padding:60px 16px;max-width:100%;}
+            .steps-grid{grid-template-columns:1fr;}
+            .form-row{grid-template-columns:1fr;}
+            .nav-company{display:none;}
+        }
+        
+.hero{background:#111;color:#fff;}
+.hero h1{font-size:clamp(58px,11vw,130px);font-weight:900;letter-spacing:-.02em;color:#fff;line-height:.95;}
+.hero h1 em{font-style:normal;color:var(--primary);}
+.nav{background:#111;border-bottom:1px solid #222;}
+.nav-logo-text,.back-link{color:#fff;}
+.nav-cta{background:var(--primary);color:#fff;font-weight:700;letter-spacing:.1em;}
+.section-label{color:var(--primary);}
+.section-label::before{background:var(--primary);}
+.feature-card{border-left:3px solid var(--primary);}
+.cta-band{background:#111;color:#fff;}
+.cta-band h2,.cta-band p{color:#fff;}
+.cta-band .btn-main{background:var(--primary);color:#fff;}
+
+    </style>
+</head>
+<body>
+
+<nav class="nav">
+    <a href="#" class="nav-logo">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus">
+        <span class="nav-logo-text">IMPERAMUS</span>
+    </a>
+    <span class="nav-company">Entwurf fuer Friseur Mustermann</span>
+    <a href="#kontakt" class="nav-cta">TERMIN BUCHEN</a>
+</nav>
+
+<section class="hero">
+    <div class="hero-orb1"></div>
+    <div class="hero-orb2"></div>
+    <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="hero-logo">
+    <p class="hero-eyebrow">Exklusiver Website-Entwurf</p>
+    <h1>Ihre neue Website,<br><span class="co-name">Friseur Mustermann</span></h1>
+    <p class="hero-sub">Speziell fuer Sie gestaltet &#8212; professionell, modern und in 7 Tagen live. Komplett kostenlos &amp; unverbindlich.</p>
+    <div class="hero-badge">&#128205;&nbsp;<span>Berlin</span></div><br>
+    <a href="#entwurf" class="btn-main">PERFEKTER SCHNITT.</a>
+    <p class="hero-note">&#10003; Kein Risiko &nbsp; &#10003; Keine versteckten Kosten &nbsp; &#10003; Live in 7 Tagen</p>
+</section>
+
+<div class="stats-strip reveal">
+    <div class="stat-item"><span class="stat-num">7</span><span class="stat-label">Tage bis live</span></div>
+    <div class="stat-item"><span class="stat-num">100%</span><span class="stat-label">Kostenloser Entwurf</span></div>
+    <div class="stat-item"><span class="stat-num">4.9&#9733;</span><span class="stat-label">Kundenzufriedenheit</span></div>
+    <div class="stat-item"><span class="stat-num">50+</span><span class="stat-label">Websites erstellt</span></div>
+</div>
+
+<section class="mockup-section reveal" id="entwurf">
+    <p class="section-label">Ihr persoenlicher Entwurf</p>
+    <h2 class="section-h2">So koennte Ihre Website aussehen</h2>
+    <p class="section-p">Premium-Design auf Agentur-Niveau &#8212; massgschneidert fuer Friseur Mustermann in Berlin.</p>
+    <div class="mockup-wrap">
+        <div class="mockup-glow"></div>
+        <div class="mockup-frame">
+            <img class="mockup-img" src="mockup.png" alt="Website-Entwurf Friseur Mustermann Berlin">
+        </div>
+    </div>
+    <p class="mockup-caption">Exklusiv fuer Friseur Mustermann &middot; Berlin erstellt</p>
+</section>
+
+<section class="features-section">
+    <div class="features-inner">
+        <div class="features-header reveal">
+            <p class="section-label">Was Sie bekommen</p>
+            <h2 class="section-h2">Professionelle Praesenz im Web</h2>
+            <p class="section-p">Alles inklusive &#8212; von Design bis Hosting. Faire Preise, keine versteckten Kosten.</p>
+        </div>
+        <div class="feature-grid">
+            <div class="feature-card reveal reveal-d1">
+                <div class="feature-icon">✂️</div>
+                <h3>SCHNITT</h3>
+                <p>Präzise Haarschnitte für jeden Stil — Damen, Herren, Kinder.</p>
+            </div>
+            <div class="feature-card reveal reveal-d2">
+                <div class="feature-icon">🎨</div>
+                <h3>FARBE</h3>
+                <p>Highlights, Balayage, Vollfarbe — alles möglich.</p>
+            </div>
+            <div class="feature-card reveal reveal-d3">
+                <div class="feature-icon">💈</div>
+                <h3>STYLING</h3>
+                <p>Blow-dry, Locken, Glättung — für jeden Tag oder besondere Momente.</p>
+            </div>
+            <div class="feature-card reveal reveal-d4">
+                <div class="feature-icon">👑</div>
+                <h3>BRAUT</h3>
+                <p>Hochzeits-Styling inkl. Probetermin — unvergesslich schön.</p>
+            </div>
+            <div class="feature-card reveal reveal-d5">
+                <div class="feature-icon">⏱️</div>
+                <h3>SCHNELL & FAIR</h3>
+                <p>Kurze Wartezeiten, faire Preise, Top-Qualität.</p>
+            </div>
+            <div class="feature-card reveal reveal-d6">
+                <div class="feature-icon">📍</div>
+                <h3>IN IHRER STADT</h3>
+                <p>Zentral gelegen, gut erreichbar, ample Parkmöglichkeiten.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="steps-section">
+    <div class="steps-inner">
+        <div class="steps-header reveal">
+            <p class="section-label">In 3 Schritten live</p>
+            <h2 class="section-h2">So einfach geht es</h2>
+            <p class="section-p">Von der ersten Anfrage bis zur fertigen Website &#8212; wir uebernehmen alles.</p>
+        </div>
+        <div class="steps-grid">
+            <div class="step-card reveal reveal-d1">
+                <span class="step-num">01</span>
+                <h3>Entwurf ansehen</h3>
+                <p>Scannen Sie den QR-Code &#8212; Ihr persoenlicher Entwurf ist sofort sichtbar. Kostenlos, unverbindlich.</p>
+                <div class="step-bar"></div>
+            </div>
+            <div class="step-card reveal reveal-d2">
+                <span class="step-num">02</span>
+                <h3>15 Min. Gespraech</h3>
+                <p>Wir erklaeren Design, Preis und Ablauf. Kein Fachjargon, keine Ueberraschungen &#8212; versprochen.</p>
+                <div class="step-bar"></div>
+            </div>
+            <div class="step-card reveal reveal-d3">
+                <span class="step-num">03</span>
+                <h3>Live in 7 Tagen</h3>
+                <p>Wir bauen alles &#8212; von Domain bis DSGVO. Sie konzentrieren sich auf Ihr Geschaeft.</p>
+                <div class="step-bar"></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="cta-band reveal">
+    <div class="cta-band-orb"></div>
+    <p class="section-label">Naechster Schritt</p>
+    <h2>Interesse geweckt?</h2>
+    <p>Kostenloses 15-Minuten-Gespraech &#8212; wir zeigen, wie wir Sie online sichtbar machen.</p>
+    <a href="#kontakt" class="btn-main">TERMIN BUCHEN</a>
+    <p class="cta-note"><a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a> &mdash; <a href="https://imperamus.de">imperamus.de</a></p>
+</section>
+
+<section class="contact-section reveal" id="kontakt">
+    <div class="contact-header">
+        <p class="section-label">Kontakt</p>
+        <h2 class="section-h2">Jetzt TERMIN BUCHEN</h2>
+        <p class="section-p">Formular ausfullen &#8212; wir melden uns innerhalb von 24 Stunden. Tel.: 030 12345678</p>
+    </div>
+    <form id="imperamus-form" onsubmit="return sendForm(event)">
+        <div class="form-row">
+            <div class="form-field"><input type="text" name="name" placeholder="Ihr Name" required></div>
+            <div class="form-field"><input type="tel" name="telefon" placeholder="Telefonnummer" required></div>
+        </div>
+        <div class="form-field"><input type="email" name="email" placeholder="E-Mail (optional)"></div>
+        <div class="form-field"><textarea name="nachricht" placeholder="Wann koennen wir Sie am besten erreichen?"></textarea></div>
+        <button type="submit" id="submit-btn" class="form-btn">Anfrage senden &#8594;</button>
+    </form>
+    <div class="success-box" id="form-success">
+        <div class="success-icon">&#10003;</div>
+        <p class="success-title">Vielen Dank!</p>
+        <p class="success-sub">Wir melden uns in Kuerze persoenlich bei Ihnen.</p>
+    </div>
+</section>
+
+<section class="trust">
+    <p>Dieser Entwurf wurde von <span>Imperamus</span> speziell fuer Friseur Mustermann in Berlin erstellt. Kein Template &#8212; nur fuer Sie.</p>
+</section>
+
+<footer>
+    <div class="footer-links">
+        <a href="https://imperamus.de">imperamus.de</a>
+        <a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a>
+    </div>
+    <div class="legal-links">
+        <a href="#impressum" onclick="document.getElementById('legal-modal').style.display='flex';return false;">Impressum</a>
+        <a href="#datenschutz" onclick="document.getElementById('legal-modal').style.display='flex';document.getElementById('legal-tab-ds').click();return false;">Datenschutz</a>
+    </div>
+    <div class="copyright">&copy; 2026 IMPERAMUS</div>
+</footer>
+
+<div id="legal-modal" style="display:none;position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,0.72);z-index:1000;align-items:center;justify-content:center;padding:20px;">
+    <div style="background:var(--bg2);border:1px solid var(--card-border);border-radius:14px;max-width:600px;width:100%;max-height:82vh;overflow-y:auto;padding:40px;position:relative;">
+        <button onclick="document.getElementById('legal-modal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--gray);font-size:24px;cursor:pointer;">&#10005;</button>
+        <div style="display:flex;gap:20px;margin-bottom:24px;border-bottom:1px solid var(--divider);padding-bottom:14px;">
+            <button id="legal-tab-imp" onclick="document.getElementById('sec-imp').style.display='block';document.getElementById('sec-ds').style.display='none';this.style.color='#FF4D4D';document.getElementById('legal-tab-ds').style.color='#666666'" style="background:none;border:none;color:#FF4D4D;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">IMPRESSUM</button>
+            <button id="legal-tab-ds" onclick="document.getElementById('sec-ds').style.display='block';document.getElementById('sec-imp').style.display='none';this.style.color='#FF4D4D';document.getElementById('legal-tab-imp').style.color='#666666'" style="background:none;border:none;color:#666666;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">DATENSCHUTZ</button>
+        </div>
+        <div id="sec-imp" style="color:var(--text);font-size:13px;line-height:1.9;">
+            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Impressum</h3>
+            <p><strong>Imperamus Webagentur</strong></p>
+            <p>Inhaber: Gowtham Sivajothy<br>Olbersstrae 49H<br>10589 Berlin</p>
+            <p style="margin-top:10px;"><strong>Kontakt:</strong><br>E-Mail: kontakt@imperamus.de<br>Web: imperamus.de<br>Tel.: 0176 61086724</p>
+        </div>
+        <div id="sec-ds" style="display:none;color:var(--text);font-size:13px;line-height:1.9;">
+            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Datenschutzerklaerung</h3>
+            <p><strong>1. Verantwortliche Stelle</strong><br>Imperamus Webagentur, kontakt@imperamus.de</p>
+            <p style="margin-top:10px;"><strong>2. Datenerhebung</strong><br>Name, Telefon, E-Mail (optional) werden zur Kontaktaufnahme gespeichert.</p>
+            <p style="margin-top:10px;"><strong>3. Weitergabe</strong><br>Keine Weitergabe. Uebermittlung via Telegram Bot API.</p>
+            <p style="margin-top:10px;"><strong>4. Google Analytics</strong><br>Diese Website nutzt Google Analytics. Ablehnung ueber Browser-Einstellungen moeglich.</p>
+            <p style="margin-top:10px;"><strong>5. Ihre Rechte</strong><br>Auskunft, Berichtigung, Loeschung: kontakt@imperamus.de</p>
+        </div>
+    </div>
+</div>
+
+<script>
+(function(){
+    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Friseur Mustermann",ci="Berlin";
+    fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:"[QR-SCAN] "+n+" ("+ci+") - "+new Date().toLocaleString('de-DE')+" - "+(/Mobile/i.test(navigator.userAgent)?"Smartphone":"Desktop")})}).catch(function(){});
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12});
+    document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
+})();
+async function sendForm(e){
+    e.preventDefault();
+    var form=document.getElementById('imperamus-form'),btn=document.getElementById('submit-btn');
+    var data=new FormData(form);
+    btn.textContent='Wird gesendet...';btn.disabled=true;
+    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Friseur Mustermann";
+    var msg="NEUER LEAD!
+
+Firma: "+n+"
+Name: "+(data.get('name')||'')+"
+Telefon: "+(data.get('telefon')||'')+"
+E-Mail: "+(data.get('email')||'-')+"
+Nachricht: "+(data.get('nachricht')||'-')+"
+
+Sofort zurueckrufen!";
+    try{
+        await fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:msg})});
+        if(typeof gtag!=='undefined')gtag('event','form_submit',{event_category:'lead',event_label:n,value:1});
+        form.style.display='none';document.getElementById('form-success').style.display='block';
+    }catch(err){
+        window.location.href='mailto:kontakt@imperamus.de?subject=Anfrage%20'+encodeURIComponent(n);
+    }
+    return false;
+}
+</script>
+</body>
+</html>
