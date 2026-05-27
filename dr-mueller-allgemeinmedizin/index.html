@@ -12,21 +12,35 @@
     <style>
         *{margin:0;padding:0;box-sizing:border-box;}
         :root{
-            --black:#0A0A0A;
-            --black-light:#141414;
-            --black-card:#1A1A1A;
+            --black:#0E0B08;
+            --black-light:#1A1410;
+            --black-card:#221C16;
             --gold:#C5A377;
             --gold-light:#D4B68A;
             --gold-dim:rgba(197,163,119,0.15);
-            --text:#D1D1D1;
-            --text-dim:#888;
+            --text:#D4CCC4;
+            --text-dim:#8C8078;
             --white:#F0ECE6;
+            --nav-bg:rgba(14,11,8,0.88);
         }
         html{scroll-behavior:smooth;}
         body{font-family:'Inter',-apple-system,sans-serif;color:var(--text);background:var(--black);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
 
+        /* STICKY NAV */
+        .nav{position:fixed;top:0;left:0;right:0;z-index:200;height:60px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 24px;gap:16px;background:var(--nav-bg);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid rgba(197,163,119,0.12);transition:background .3s;}
+        .nav-logo{display:flex;align-items:center;gap:9px;text-decoration:none;justify-self:start;}
+        .nav-logo img{height:26px;width:auto;}
+        .nav-logo-text{font-family:'Cinzel',serif;font-size:12px;font-weight:600;color:#C9A84C;letter-spacing:.12em;}
+        .nav-company{font-size:10px;color:var(--text-dim);letter-spacing:.18em;text-transform:uppercase;text-align:center;justify-self:center;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;max-width:340px;}
+        .nav-cta{justify-self:end;display:inline-block;background:var(--gold);color:var(--black);padding:9px 20px;border-radius:3px;text-decoration:none;font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;transition:background .2s,transform .15s;white-space:nowrap;}
+        .nav-cta:hover{background:var(--gold-light);transform:translateY(-1px);}
+        @media(max-width:600px){
+            .nav-company{display:none;}
+            .nav{grid-template-columns:1fr auto;}
+        }
+
         /* HERO */
-        .hero{background:var(--black);padding:80px 20px 60px;text-align:center;position:relative;overflow:hidden;}
+        .hero{background:var(--black);padding:120px 20px 60px;text-align:center;position:relative;overflow:hidden;}
         .hero::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);}
         .hero::after{content:'';position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:600px;height:600px;background:radial-gradient(circle,rgba(197,163,119,0.04) 0%,transparent 70%);pointer-events:none;}
         .hero-logo{width:320px;height:auto;margin-bottom:25px;filter:drop-shadow(0 6px 30px rgba(197,163,119,0.35));position:relative;z-index:1;}
@@ -121,6 +135,15 @@
     </style>
 </head>
 <body>
+
+<nav class="nav">
+    <a href="#" class="nav-logo">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus">
+        <span class="nav-logo-text">IMPERAMUS</span>
+    </a>
+    <span class="nav-company">Entwurf für Dr. Mueller Allgemeinmedizin</span>
+    <a href="#kontakt" class="nav-cta">Angebot einholen</a>
+</nav>
 
 <section class="hero">
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="hero-logo">
