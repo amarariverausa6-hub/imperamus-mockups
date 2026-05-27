@@ -32,12 +32,12 @@
         }
         html{scroll-behavior:smooth;}
         body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-        .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;justify-self:start;}
         .nav-logo img{height:30px;width:auto;}
         .nav-logo-text{font-family:var(--font-head);font-size:14px;font-weight:600;color:var(--primary);letter-spacing:.06em;}
-        .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-        .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+        .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;justify-self:center;text-align:center;}
+        .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;justify-self:end;}
         .nav-cta:hover{opacity:.85;transform:translateY(-1px);}
         .hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
         .hero-orb1,.hero-orb2{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px);}
@@ -193,7 +193,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
         <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus">
         <span class="nav-logo-text">IMPERAMUS</span>
     </a>
-    <span class="nav-company">Entwurf fuer Friseursalon Bella</span>
+    <span class="nav-company">Entwurf für Friseursalon Bella</span>
     <a href="#kontakt" class="nav-cta">Termin anfragen</a>
 </nav>
 
@@ -203,7 +203,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="hero-logo">
     <p class="hero-eyebrow">Exklusiver Website-Entwurf</p>
     <h1>Ihre neue Website,<br><span class="co-name">Friseursalon Bella</span></h1>
-    <p class="hero-sub">Speziell fuer Sie gestaltet &#8212; professionell, modern und in 7 Tagen live. Komplett kostenlos &amp; unverbindlich.</p>
+    <p class="hero-sub">Speziell für Sie gestaltet &#8212; professionell, modern und in 7 Tagen live. Komplett kostenlos &amp; unverbindlich.</p>
     <div class="hero-badge">&#128205;&nbsp;<span>Berlin</span></div><br>
     <a href="#entwurf" class="btn-main">Schönheit neu definiert.</a>
     <p class="hero-note">&#10003; Kein Risiko &nbsp; &#10003; Keine versteckten Kosten &nbsp; &#10003; Live in 7 Tagen</p>
@@ -217,23 +217,23 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 </div>
 
 <section class="mockup-section reveal" id="entwurf">
-    <p class="section-label">Ihr persoenlicher Entwurf</p>
-    <h2 class="section-h2">So koennte Ihre Website aussehen</h2>
-    <p class="section-p">Premium-Design auf Agentur-Niveau &#8212; massgschneidert fuer Friseursalon Bella in Berlin.</p>
+    <p class="section-label">Ihr persönlicher Entwurf</p>
+    <h2 class="section-h2">So könnte Ihre Website aussehen</h2>
+    <p class="section-p">Premium-Design auf Agentur-Niveau &#8212; maßgeschneidert für Friseursalon Bella in Berlin.</p>
     <div class="mockup-wrap">
         <div class="mockup-glow"></div>
         <div class="mockup-frame">
             <img class="mockup-img" src="mockup.png" alt="Website-Entwurf Friseursalon Bella Berlin">
         </div>
     </div>
-    <p class="mockup-caption">Exklusiv fuer Friseursalon Bella &middot; Berlin erstellt</p>
+    <p class="mockup-caption">Exklusiv für Friseursalon Bella &middot; Berlin erstellt</p>
 </section>
 
 <section class="features-section">
     <div class="features-inner">
         <div class="features-header reveal">
             <p class="section-label">Was Sie bekommen</p>
-            <h2 class="section-h2">Professionelle Praesenz im Web</h2>
+            <h2 class="section-h2">Professionelle Präsenz im Web</h2>
             <p class="section-p">Alles inklusive &#8212; von Design bis Hosting. Faire Preise, keine versteckten Kosten.</p>
         </div>
         <div class="feature-grid">
@@ -276,25 +276,25 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
         <div class="steps-header reveal">
             <p class="section-label">In 3 Schritten live</p>
             <h2 class="section-h2">So einfach geht es</h2>
-            <p class="section-p">Von der ersten Anfrage bis zur fertigen Website &#8212; wir uebernehmen alles.</p>
+            <p class="section-p">Von der ersten Anfrage bis zur fertigen Website &#8212; wir übernehmen alles.</p>
         </div>
         <div class="steps-grid">
             <div class="step-card reveal reveal-d1">
                 <span class="step-num">01</span>
                 <h3>Entwurf ansehen</h3>
-                <p>Scannen Sie den QR-Code &#8212; Ihr persoenlicher Entwurf ist sofort sichtbar. Kostenlos, unverbindlich.</p>
+                <p>Scannen Sie den QR-Code &#8212; Ihr persönlicher Entwurf ist sofort sichtbar. Kostenlos, unverbindlich.</p>
                 <div class="step-bar"></div>
             </div>
             <div class="step-card reveal reveal-d2">
                 <span class="step-num">02</span>
                 <h3>15 Min. Gespraech</h3>
-                <p>Wir erklaeren Design, Preis und Ablauf. Kein Fachjargon, keine Ueberraschungen &#8212; versprochen.</p>
+                <p>Wir erklären Design, Preis und Ablauf. Kein Fachjargon, keine Überraschungen &#8212; versprochen.</p>
                 <div class="step-bar"></div>
             </div>
             <div class="step-card reveal reveal-d3">
                 <span class="step-num">03</span>
                 <h3>Live in 7 Tagen</h3>
-                <p>Wir bauen alles &#8212; von Domain bis DSGVO. Sie konzentrieren sich auf Ihr Geschaeft.</p>
+                <p>Wir bauen alles &#8212; von Domain bis DSGVO. Sie konzentrieren sich auf Ihr Geschäft.</p>
                 <div class="step-bar"></div>
             </div>
         </div>
@@ -303,9 +303,9 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
 
 <section class="cta-band reveal">
     <div class="cta-band-orb"></div>
-    <p class="section-label">Naechster Schritt</p>
+    <p class="section-label">Nächster Schritt</p>
     <h2>Interesse geweckt?</h2>
-    <p>Kostenloses 15-Minuten-Gespraech &#8212; wir zeigen, wie wir Sie online sichtbar machen.</p>
+    <p>Kostenloses 15-Minuten-Gespräch &#8212; wir zeigen, wie wir Sie online sichtbar machen.</p>
     <a href="#kontakt" class="btn-main">Termin anfragen</a>
     <p class="cta-note"><a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a> &mdash; <a href="https://imperamus.de">imperamus.de</a></p>
 </section>
@@ -314,7 +314,7 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
     <div class="contact-header">
         <p class="section-label">Kontakt</p>
         <h2 class="section-h2">Jetzt Termin anfragen</h2>
-        <p class="section-p">Formular ausfullen &#8212; wir melden uns innerhalb von 24 Stunden. Tel.: 030-987654</p>
+        <p class="section-p">Formular ausfüllen &#8212; wir melden uns innerhalb von 24 Stunden. Tel.: 030-987654</p>
     </div>
     <form id="imperamus-form" onsubmit="return sendForm(event)">
         <div class="form-row">
@@ -322,18 +322,18 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
             <div class="form-field"><input type="tel" name="telefon" placeholder="Telefonnummer" required></div>
         </div>
         <div class="form-field"><input type="email" name="email" placeholder="E-Mail (optional)"></div>
-        <div class="form-field"><textarea name="nachricht" placeholder="Wann koennen wir Sie am besten erreichen?"></textarea></div>
+        <div class="form-field"><textarea name="nachricht" placeholder="Wann können wir Sie am besten erreichen?"></textarea></div>
         <button type="submit" id="submit-btn" class="form-btn">Anfrage senden &#8594;</button>
     </form>
     <div class="success-box" id="form-success">
         <div class="success-icon">&#10003;</div>
         <p class="success-title">Vielen Dank!</p>
-        <p class="success-sub">Wir melden uns in Kuerze persoenlich bei Ihnen.</p>
+        <p class="success-sub">Wir melden uns in Kürze persönlich bei Ihnen.</p>
     </div>
 </section>
 
 <section class="trust">
-    <p>Dieser Entwurf wurde von <span>Imperamus</span> speziell fuer Friseursalon Bella in Berlin erstellt. Kein Template &#8212; nur fuer Sie.</p>
+    <p>Dieser Entwurf wurde von <span>Imperamus</span> speziell für Friseursalon Bella in Berlin erstellt. Kein Template &#8212; nur für Sie.</p>
 </section>
 
 <footer>
@@ -362,11 +362,11 @@ body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;o
             <p style="margin-top:10px;"><strong>Kontakt:</strong><br>E-Mail: kontakt@imperamus.de<br>Web: imperamus.de<br>Tel.: 0176 61086724</p>
         </div>
         <div id="sec-ds" style="display:none;color:var(--text);font-size:13px;line-height:1.9;">
-            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Datenschutzerklaerung</h3>
+            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Datenschutzerklärung</h3>
             <p><strong>1. Verantwortliche Stelle</strong><br>Imperamus Webagentur, kontakt@imperamus.de</p>
             <p style="margin-top:10px;"><strong>2. Datenerhebung</strong><br>Name, Telefon, E-Mail (optional) werden zur Kontaktaufnahme gespeichert.</p>
-            <p style="margin-top:10px;"><strong>3. Weitergabe</strong><br>Keine Weitergabe. Uebermittlung via Telegram Bot API.</p>
-            <p style="margin-top:10px;"><strong>4. Google Analytics</strong><br>Diese Website nutzt Google Analytics. Ablehnung ueber Browser-Einstellungen moeglich.</p>
+            <p style="margin-top:10px;"><strong>3. Weitergabe</strong><br>Keine Weitergabe. Übermittlung via Telegram Bot API.</p>
+            <p style="margin-top:10px;"><strong>4. Google Analytics</strong><br>Diese Website nutzt Google Analytics. Ablehnung über Browser-Einstellungen möglich.</p>
             <p style="margin-top:10px;"><strong>5. Ihre Rechte</strong><br>Auskunft, Berichtigung, Loeschung: kontakt@imperamus.de</p>
         </div>
     </div>
@@ -393,7 +393,7 @@ Telefon: "+(data.get('telefon')||'')+"
 E-Mail: "+(data.get('email')||'-')+"
 Nachricht: "+(data.get('nachricht')||'-')+"
 
-Sofort zurueckrufen!";
+Sofort zurückrufen!";
     try{
         await fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:msg})});
         if(typeof gtag!=='undefined')gtag('event','form_submit',{event_category:'lead',event_label:n,value:1});
