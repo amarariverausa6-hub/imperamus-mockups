@@ -35,7 +35,7 @@
         .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
         .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;justify-self:start;}
         .nav-logo img{height:30px;width:auto;}
-        .nav-logo-text{font-family:var(--font-head);font-size:14px;font-weight:600;color:var(--primary);letter-spacing:.06em;}
+        .nav-logo-text{font-family:var(--font-head);font-size:14px;font-weight:600;color:#C9A84C;letter-spacing:.06em;}
         .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;justify-self:center;text-align:center;}
         .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;justify-self:end;}
         .nav-cta:hover{opacity:.85;transform:translateY(-1px);}
@@ -152,41 +152,9 @@
 .cta-band h2,.cta-band p{color:#fff;}
 .cta-band .btn-main{background:#fff;color:var(--primary);}
 
-    
-/* ── Pro Motion Layer ──────────────────────────────────── */
-/* Animated Orbs */
-.orb{position:fixed;border-radius:50%;pointer-events:none;z-index:0;filter:blur(80px);opacity:.3;}
-.orb-1{width:500px;height:500px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);top:-180px;right:-180px;animation:orbFloat 12s ease-in-out infinite;}
-.orb-2{width:350px;height:350px;background:radial-gradient(circle,var(--primary) 0%,transparent 70%);bottom:-100px;left:-120px;animation:orbFloat 16s ease-in-out infinite reverse;}
-@keyframes orbFloat{0%,100%{transform:translate(0,0)}33%{transform:translate(24px,-18px)}66%{transform:translate(-18px,12px)}}
-
-/* Grain overlay */
-body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.022;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
-
-/* Glassmorphism Nav on scroll */
-.nav{transition:background 300ms ease,backdrop-filter 300ms ease,border-color 300ms ease;}
-.nav.is-scrolled{background:color-mix(in srgb,var(--bg) 80%,transparent)!important;backdrop-filter:blur(24px);-webkit-backdrop-filter:blur(24px);border-bottom:1px solid color-mix(in srgb,var(--primary) 20%,transparent);}
-
-/* Shimmer CTA button */
-.btn-main{position:relative;overflow:hidden;}
-.btn-main::after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(255,255,255,.15),transparent);transform:translateX(-110%) skewX(-20deg);transition:transform 600ms cubic-bezier(0.23,1,0.32,1);}
-@media(hover:hover)and(pointer:fine){.btn-main:hover::after{transform:translateX(110%) skewX(-20deg);}}
-
-/* Scroll-reveal */
-.pro-reveal{opacity:0;transform:translateY(36px);transition:opacity 650ms cubic-bezier(0.23,1,0.32,1),transform 650ms cubic-bezier(0.23,1,0.32,1);}
-.pro-reveal.pro-visible{opacity:1;transform:translateY(0);}
-
-@media(prefers-reduced-motion:reduce){
-  .pro-reveal{transition:opacity 250ms ease;transform:none!important;}
-  .orb,.orb-1,.orb-2{display:none;}
-  body::after{display:none;}
-}
-
-</style>
+    </style>
 </head>
 <body>
-<div class="orb orb-1"></div>
-<div class="orb orb-2"></div>
 
 <nav class="nav">
     <a href="#" class="nav-logo">
@@ -404,30 +372,5 @@ Sofort zurückrufen!";
     return false;
 }
 </script>
-
-<script>
-(function(){
-  // Nav blur on scroll
-  var nav=document.querySelector('.nav');
-  if(nav)window.addEventListener('scroll',function(){
-    nav.classList.toggle('is-scrolled',window.scrollY>60);
-  },{passive:true});
-
-  // Scroll-reveal (IntersectionObserver)
-  var targets=document.querySelectorAll('section,.feature-card,.cta-band');
-  targets.forEach(function(el){el.classList.add('pro-reveal');});
-  if('IntersectionObserver' in window){
-    var io=new IntersectionObserver(function(entries){
-      entries.forEach(function(e){
-        if(e.isIntersecting){e.target.classList.add('pro-visible');io.unobserve(e.target);}
-      });
-    },{threshold:0.1,rootMargin:'0px 0px -40px 0px'});
-    targets.forEach(function(el){io.observe(el);});
-  } else {
-    targets.forEach(function(el){el.classList.add('pro-visible');});
-  }
-})();
-</script>
-
 </body>
 </html>
