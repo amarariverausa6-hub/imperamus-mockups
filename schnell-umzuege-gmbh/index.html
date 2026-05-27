@@ -3,41 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Schnell Umzuege GmbH &#8212; Website-Entwurf | Imperamus</title>
-    <meta name="description" content="Ihr persoenlicher Website-Entwurf fuer Schnell Umzuege GmbH in Muenchen von Imperamus Webagentur.">
+    <title>Schnell Umzüge GmbH &#8212; Website-Entwurf | Imperamus</title>
+    <meta name="description" content="Ihr persoenlicher Website-Entwurf fuer Schnell Umzüge GmbH in München von Imperamus Webagentur.">
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-1PKPJZGVBQ"></script>
     <script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-1PKPJZGVBQ');</script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow:wght@300;400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         *,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
         :root{
-            --bg:#F5F8FF;
-            --bg2:#EDF2FA;
-            --primary:#1A5FA0;
-            --primary-rgb:26,95,160;
-            --text:#0A1830;
-            --gray:#507090;
+            --bg:#FAF7F2;
+            --bg2:#F2EDE4;
+            --primary:#8B5E3C;
+            --primary-rgb:139,94,60;
+            --text:#1A100A;
+            --gray:#7A6050;
             --card-bg:#ffffff;
-            --card-border:rgba(26,95,160,0.14);
+            --card-border:rgba(139,94,60,0.14);
             --card-shadow:0 4px 24px rgba(0,0,0,0.07);
             --input-bg:rgba(0,0,0,0.03);
-            --nav-bg:rgba(245,248,255,0.92);
-            --divider:rgba(26,95,160,0.12);
-            --num-color:rgba(26,95,160,0.14);
+            --nav-bg:rgba(250,247,242,0.92);
+            --divider:rgba(139,94,60,0.12);
+            --num-color:rgba(139,94,60,0.14);
             --btn-text:#ffffff;
-            --font-head:'Barlow',Georgia,serif;
+            --font-head:'Cormorant Garamond',Georgia,serif;
             --font-body:'Inter',system-ui,sans-serif;
         }
         html{scroll-behavior:smooth;}
         body{font-family:var(--font-body);color:var(--text);background:var(--bg);line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden;}
-        .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:flex;align-items:center;justify-content:space-between;gap:16px;}
-        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0;}
+        .nav{position:fixed;top:0;left:0;right:0;z-index:100;backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);background:var(--nav-bg);border-bottom:1px solid var(--divider);padding:0 24px;height:64px;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;gap:16px;}
+        .nav-logo{display:flex;align-items:center;gap:10px;text-decoration:none;justify-self:start;}
         .nav-logo img{height:30px;width:auto;}
         .nav-logo-text{font-family:var(--font-head);font-size:14px;font-weight:600;color:var(--primary);letter-spacing:.06em;}
-        .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
-        .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;flex-shrink:0;}
+        .nav-company{font-size:11px;color:var(--gray);letter-spacing:.1em;text-transform:uppercase;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;justify-self:center;text-align:center;}
+        .nav-cta{background:var(--primary);color:var(--btn-text);padding:9px 22px;border-radius:4px;text-decoration:none;font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;transition:opacity .2s,transform .15s;white-space:nowrap;justify-self:end;}
         .nav-cta:hover{opacity:.85;transform:translateY(-1px);}
         .hero{padding:140px 24px 80px;text-align:center;position:relative;overflow:hidden;background:var(--bg);}
         .hero-orb1,.hero-orb2{position:absolute;border-radius:50%;pointer-events:none;filter:blur(90px);}
@@ -142,12 +142,12 @@
             .nav-company{display:none;}
         }
         
-.hero{background:linear-gradient(135deg,#edf2fa,#f5f8ff);}
-.hero h1{font-size:clamp(44px,7.5vw,92px);font-weight:700;color:var(--text);letter-spacing:-.02em;}
-.hero h1 em{font-style:italic;color:var(--primary);}
+.hero{background:linear-gradient(160deg,#f2ede4,#faf7f2);}
+.hero h1{font-size:clamp(46px,8vw,96px);font-weight:300;font-style:italic;color:var(--text);}
+.hero h1 em{color:var(--primary);}
 .nav-cta{background:var(--primary);color:#fff;}
 .section-label::before{background:var(--primary);}
-.feature-card{background:#fff;border-radius:10px;box-shadow:0 2px 16px rgba(26,95,160,.07);}
+.feature-card{background:#fff;border-radius:12px;border:none;box-shadow:0 2px 16px rgba(139,94,60,.08);}
 .cta-band{background:var(--primary);}
 .cta-band h2,.cta-band p{color:#fff;}
 .cta-band .btn-main{background:#fff;color:var(--primary);}
@@ -161,8 +161,8 @@
         <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus">
         <span class="nav-logo-text">IMPERAMUS</span>
     </a>
-    <span class="nav-company">Entwurf fuer Schnell Umzuege GmbH</span>
-    <a href="#kontakt" class="nav-cta">Kostenloses Angebot</a>
+    <span class="nav-company">Entwurf für Schnell Umzüge GmbH</span>
+    <a href="#kontakt" class="nav-cta">Angebot einholen</a>
 </nav>
 
 <section class="hero">
@@ -170,10 +170,10 @@
     <div class="hero-orb2"></div>
     <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="hero-logo">
     <p class="hero-eyebrow">Exklusiver Website-Entwurf</p>
-    <h1>Ihre neue Website,<br><span class="co-name">Schnell Umzuege GmbH</span></h1>
-    <p class="hero-sub">Speziell fuer Sie gestaltet &#8212; professionell, modern und in 7 Tagen live. Komplett kostenlos &amp; unverbindlich.</p>
-    <div class="hero-badge">&#128205;&nbsp;<span>Muenchen</span></div><br>
-    <a href="#entwurf" class="btn-main">Sicher ankommen. Stressfrei umziehen.</a>
+    <h1>Ihre neue Website,<br><span class="co-name">Schnell Umzüge GmbH</span></h1>
+    <p class="hero-sub">Speziell für Sie gestaltet &#8212; professionell, modern und in 7 Tagen live. Komplett kostenlos &amp; unverbindlich.</p>
+    <div class="hero-badge">&#128205;&nbsp;<span>München</span></div><br>
+    <a href="#entwurf" class="btn-main">Sorgsam. Persönlich. Verlässlich.</a>
     <p class="hero-note">&#10003; Kein Risiko &nbsp; &#10003; Keine versteckten Kosten &nbsp; &#10003; Live in 7 Tagen</p>
 </section>
 
@@ -185,55 +185,55 @@
 </div>
 
 <section class="mockup-section reveal" id="entwurf">
-    <p class="section-label">Ihr persoenlicher Entwurf</p>
-    <h2 class="section-h2">So koennte Ihre Website aussehen</h2>
-    <p class="section-p">Premium-Design auf Agentur-Niveau &#8212; massgschneidert fuer Schnell Umzuege GmbH in Muenchen.</p>
+    <p class="section-label">Ihr persönlicher Entwurf</p>
+    <h2 class="section-h2">So könnte Ihre Website aussehen</h2>
+    <p class="section-p">Premium-Design auf Agentur-Niveau &#8212; maßgeschneidert für Schnell Umzüge GmbH in München.</p>
     <div class="mockup-wrap">
         <div class="mockup-glow"></div>
         <div class="mockup-frame">
-            <img class="mockup-img" src="mockup.png" alt="Website-Entwurf Schnell Umzuege GmbH Muenchen">
+            <img class="mockup-img" src="mockup.png" alt="Website-Entwurf Schnell Umzüge GmbH München">
         </div>
     </div>
-    <p class="mockup-caption">Exklusiv fuer Schnell Umzuege GmbH &middot; Muenchen erstellt</p>
+    <p class="mockup-caption">Exklusiv für Schnell Umzüge GmbH &middot; München erstellt</p>
 </section>
 
 <section class="features-section">
     <div class="features-inner">
         <div class="features-header reveal">
             <p class="section-label">Was Sie bekommen</p>
-            <h2 class="section-h2">Professionelle Praesenz im Web</h2>
+            <h2 class="section-h2">Professionelle Präsenz im Web</h2>
             <p class="section-p">Alles inklusive &#8212; von Design bis Hosting. Faire Preise, keine versteckten Kosten.</p>
         </div>
         <div class="feature-grid">
             <div class="feature-card reveal reveal-d1">
-                <div class="feature-icon">🗝️</div>
-                <h3>Wohnungsauflösung</h3>
-                <p>Komplette Haushaltsauflösung — wir kümmern uns um alles.</p>
+                <div class="feature-icon">🏡</div>
+                <h3>Privatumzüge</h3>
+                <p>Ihr Hausrat in besten Händen — sorgfältig, pünktlich, persönlich.</p>
             </div>
             <div class="feature-card reveal reveal-d2">
-                <div class="feature-icon">📱</div>
-                <h3>Online-Planung</h3>
-                <p>Umzugsplan, Checkliste und Terminkoordination — bequem digital.</p>
+                <div class="feature-icon">👴</div>
+                <h3>Seniorenumzug</h3>
+                <p>Behutsam und einfühlsam — wir haben Zeit und nehmen uns Zeit.</p>
             </div>
             <div class="feature-card reveal reveal-d3">
-                <div class="feature-icon">📦</div>
-                <h3>Verpackungsmaterial</h3>
-                <p>Kartons, Folien, Polster — alles wird geliefert, Restabholung inkl.</p>
+                <div class="feature-icon">🎨</div>
+                <h3>Entrümpelung</h3>
+                <p>Wohnung, Keller, Dachboden — wir räumen auf und entsorgen sauber.</p>
             </div>
             <div class="feature-card reveal reveal-d4">
-                <div class="feature-icon">🚛</div>
-                <h3>Spezialtransport</h3>
-                <p>Klavier, Aquarium, Kunstobjekte — nichts ist uns zu heikel.</p>
+                <div class="feature-icon">🔑</div>
+                <h3>Schlüsselfertig</h3>
+                <p>Wir übergeben die leere Wohnung besenrein — ohne Stress für Sie.</p>
             </div>
             <div class="feature-card reveal reveal-d5">
-                <div class="feature-icon">🔒</div>
-                <h3>Vollversicherung</h3>
-                <p>Alle Gegenstände sind während des Transports voll versichert.</p>
+                <div class="feature-icon">🗓️</div>
+                <h3>Flexible Termine</h3>
+                <p>Auch am Wochenende oder am Abend — wir passen uns Ihnen an.</p>
             </div>
             <div class="feature-card reveal reveal-d6">
-                <div class="feature-icon">⭐</div>
-                <h3>Top-Bewertungen</h3>
-                <p>4.8★ auf Google — weil wir liefern was wir versprechen.</p>
+                <div class="feature-icon">💚</div>
+                <h3>Familienbetrieb</h3>
+                <p>Seit Jahren verlässlicher Partner für Familien in Ihrer Region.</p>
             </div>
         </div>
     </div>
@@ -244,25 +244,25 @@
         <div class="steps-header reveal">
             <p class="section-label">In 3 Schritten live</p>
             <h2 class="section-h2">So einfach geht es</h2>
-            <p class="section-p">Von der ersten Anfrage bis zur fertigen Website &#8212; wir uebernehmen alles.</p>
+            <p class="section-p">Von der ersten Anfrage bis zur fertigen Website &#8212; wir übernehmen alles.</p>
         </div>
         <div class="steps-grid">
             <div class="step-card reveal reveal-d1">
                 <span class="step-num">01</span>
                 <h3>Entwurf ansehen</h3>
-                <p>Scannen Sie den QR-Code &#8212; Ihr persoenlicher Entwurf ist sofort sichtbar. Kostenlos, unverbindlich.</p>
+                <p>Scannen Sie den QR-Code &#8212; Ihr persönlicher Entwurf ist sofort sichtbar. Kostenlos, unverbindlich.</p>
                 <div class="step-bar"></div>
             </div>
             <div class="step-card reveal reveal-d2">
                 <span class="step-num">02</span>
                 <h3>15 Min. Gespraech</h3>
-                <p>Wir erklaeren Design, Preis und Ablauf. Kein Fachjargon, keine Ueberraschungen &#8212; versprochen.</p>
+                <p>Wir erklären Design, Preis und Ablauf. Kein Fachjargon, keine Überraschungen &#8212; versprochen.</p>
                 <div class="step-bar"></div>
             </div>
             <div class="step-card reveal reveal-d3">
                 <span class="step-num">03</span>
                 <h3>Live in 7 Tagen</h3>
-                <p>Wir bauen alles &#8212; von Domain bis DSGVO. Sie konzentrieren sich auf Ihr Geschaeft.</p>
+                <p>Wir bauen alles &#8212; von Domain bis DSGVO. Sie konzentrieren sich auf Ihr Geschäft.</p>
                 <div class="step-bar"></div>
             </div>
         </div>
@@ -271,18 +271,18 @@
 
 <section class="cta-band reveal">
     <div class="cta-band-orb"></div>
-    <p class="section-label">Naechster Schritt</p>
+    <p class="section-label">Nächster Schritt</p>
     <h2>Interesse geweckt?</h2>
-    <p>Kostenloses 15-Minuten-Gespraech &#8212; wir zeigen, wie wir Sie online sichtbar machen.</p>
-    <a href="#kontakt" class="btn-main">Kostenloses Angebot</a>
+    <p>Kostenloses 15-Minuten-Gespräch &#8212; wir zeigen, wie wir Sie online sichtbar machen.</p>
+    <a href="#kontakt" class="btn-main">Angebot einholen</a>
     <p class="cta-note"><a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a> &mdash; <a href="https://imperamus.de">imperamus.de</a></p>
 </section>
 
 <section class="contact-section reveal" id="kontakt">
     <div class="contact-header">
         <p class="section-label">Kontakt</p>
-        <h2 class="section-h2">Jetzt Kostenloses Angebot</h2>
-        <p class="section-p">Formular ausfullen &#8212; wir melden uns innerhalb von 24 Stunden. Tel.: 089-456789</p>
+        <h2 class="section-h2">Jetzt Angebot einholen</h2>
+        <p class="section-p">Formular ausfüllen &#8212; wir melden uns innerhalb von 24 Stunden. Tel.: 089-456789</p>
     </div>
     <form id="imperamus-form" onsubmit="return sendForm(event)">
         <div class="form-row">
@@ -290,18 +290,18 @@
             <div class="form-field"><input type="tel" name="telefon" placeholder="Telefonnummer" required></div>
         </div>
         <div class="form-field"><input type="email" name="email" placeholder="E-Mail (optional)"></div>
-        <div class="form-field"><textarea name="nachricht" placeholder="Wann koennen wir Sie am besten erreichen?"></textarea></div>
+        <div class="form-field"><textarea name="nachricht" placeholder="Wann können wir Sie am besten erreichen?"></textarea></div>
         <button type="submit" id="submit-btn" class="form-btn">Anfrage senden &#8594;</button>
     </form>
     <div class="success-box" id="form-success">
         <div class="success-icon">&#10003;</div>
         <p class="success-title">Vielen Dank!</p>
-        <p class="success-sub">Wir melden uns in Kuerze persoenlich bei Ihnen.</p>
+        <p class="success-sub">Wir melden uns in Kürze persönlich bei Ihnen.</p>
     </div>
 </section>
 
 <section class="trust">
-    <p>Dieser Entwurf wurde von <span>Imperamus</span> speziell fuer Schnell Umzuege GmbH in Muenchen erstellt. Kein Template &#8212; nur fuer Sie.</p>
+    <p>Dieser Entwurf wurde von <span>Imperamus</span> speziell für Schnell Umzüge GmbH in München erstellt. Kein Template &#8212; nur für Sie.</p>
 </section>
 
 <footer>
@@ -320,8 +320,8 @@
     <div style="background:var(--bg2);border:1px solid var(--card-border);border-radius:14px;max-width:600px;width:100%;max-height:82vh;overflow-y:auto;padding:40px;position:relative;">
         <button onclick="document.getElementById('legal-modal').style.display='none'" style="position:absolute;top:14px;right:18px;background:none;border:none;color:var(--gray);font-size:24px;cursor:pointer;">&#10005;</button>
         <div style="display:flex;gap:20px;margin-bottom:24px;border-bottom:1px solid var(--divider);padding-bottom:14px;">
-            <button id="legal-tab-imp" onclick="document.getElementById('sec-imp').style.display='block';document.getElementById('sec-ds').style.display='none';this.style.color='#1A5FA0';document.getElementById('legal-tab-ds').style.color='#507090'" style="background:none;border:none;color:#1A5FA0;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">IMPRESSUM</button>
-            <button id="legal-tab-ds" onclick="document.getElementById('sec-ds').style.display='block';document.getElementById('sec-imp').style.display='none';this.style.color='#1A5FA0';document.getElementById('legal-tab-imp').style.color='#507090'" style="background:none;border:none;color:#507090;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">DATENSCHUTZ</button>
+            <button id="legal-tab-imp" onclick="document.getElementById('sec-imp').style.display='block';document.getElementById('sec-ds').style.display='none';this.style.color='#8B5E3C';document.getElementById('legal-tab-ds').style.color='#7A6050'" style="background:none;border:none;color:#8B5E3C;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">IMPRESSUM</button>
+            <button id="legal-tab-ds" onclick="document.getElementById('sec-ds').style.display='block';document.getElementById('sec-imp').style.display='none';this.style.color='#8B5E3C';document.getElementById('legal-tab-imp').style.color='#7A6050'" style="background:none;border:none;color:#7A6050;font-size:13px;font-weight:600;cursor:pointer;letter-spacing:.06em;">DATENSCHUTZ</button>
         </div>
         <div id="sec-imp" style="color:var(--text);font-size:13px;line-height:1.9;">
             <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Impressum</h3>
@@ -330,11 +330,11 @@
             <p style="margin-top:10px;"><strong>Kontakt:</strong><br>E-Mail: kontakt@imperamus.de<br>Web: imperamus.de<br>Tel.: 0176 61086724</p>
         </div>
         <div id="sec-ds" style="display:none;color:var(--text);font-size:13px;line-height:1.9;">
-            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Datenschutzerklaerung</h3>
+            <h3 style="font-family:var(--font-head);color:var(--primary);font-size:17px;margin-bottom:14px;">Datenschutzerklärung</h3>
             <p><strong>1. Verantwortliche Stelle</strong><br>Imperamus Webagentur, kontakt@imperamus.de</p>
             <p style="margin-top:10px;"><strong>2. Datenerhebung</strong><br>Name, Telefon, E-Mail (optional) werden zur Kontaktaufnahme gespeichert.</p>
-            <p style="margin-top:10px;"><strong>3. Weitergabe</strong><br>Keine Weitergabe. Uebermittlung via Telegram Bot API.</p>
-            <p style="margin-top:10px;"><strong>4. Google Analytics</strong><br>Diese Website nutzt Google Analytics. Ablehnung ueber Browser-Einstellungen moeglich.</p>
+            <p style="margin-top:10px;"><strong>3. Weitergabe</strong><br>Keine Weitergabe. Übermittlung via Telegram Bot API.</p>
+            <p style="margin-top:10px;"><strong>4. Google Analytics</strong><br>Diese Website nutzt Google Analytics. Ablehnung über Browser-Einstellungen möglich.</p>
             <p style="margin-top:10px;"><strong>5. Ihre Rechte</strong><br>Auskunft, Berichtigung, Loeschung: kontakt@imperamus.de</p>
         </div>
     </div>
@@ -342,7 +342,7 @@
 
 <script>
 (function(){
-    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Schnell Umzuege GmbH",ci="Muenchen";
+    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Schnell Umzüge GmbH",ci="München";
     fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:"[QR-SCAN] "+n+" ("+ci+") - "+new Date().toLocaleString('de-DE')+" - "+(/Mobile/i.test(navigator.userAgent)?"Smartphone":"Desktop")})}).catch(function(){});
     var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');io.unobserve(e.target);}});},{threshold:.12});
     document.querySelectorAll('.reveal').forEach(function(el){io.observe(el);});
@@ -352,7 +352,7 @@ async function sendForm(e){
     var form=document.getElementById('imperamus-form'),btn=document.getElementById('submit-btn');
     var data=new FormData(form);
     btn.textContent='Wird gesendet...';btn.disabled=true;
-    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Schnell Umzuege GmbH";
+    var t="8752139809:AAES05j7hP3MJaTlxr-Jub3FCkXOR17sgFU",c="-1003951377259",n="Schnell Umzüge GmbH";
     var msg="NEUER LEAD!
 
 Firma: "+n+"
@@ -361,7 +361,7 @@ Telefon: "+(data.get('telefon')||'')+"
 E-Mail: "+(data.get('email')||'-')+"
 Nachricht: "+(data.get('nachricht')||'-')+"
 
-Sofort zurueckrufen!";
+Sofort zurückrufen!";
     try{
         await fetch("https://api.telegram.org/bot"+t+"/sendMessage",{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({chat_id:c,text:msg})});
         if(typeof gtag!=='undefined')gtag('event','form_submit',{event_category:'lead',event_label:n,value:1});
