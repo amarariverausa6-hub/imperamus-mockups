@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. Volltest Arztpraxis – Ihr Website-Entwurf | Imperamus</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --black: #0A0A0A;
+            --black-light: #141414;
+            --black-card: #1A1A1A;
+            --gold: #C5A377;
+            --gold-light: #D4B68A;
+            --gold-dim: rgba(197, 163, 119, 0.15);
+            --text: #D1D1D1;
+            --text-dim: #888;
+            --white: #F0ECE6;
+        }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', -apple-system, sans-serif; color: var(--text); background: var(--black); line-height: 1.7; -webkit-font-smoothing: antialiased; }
+
+        .hero {
+            background: var(--black);
+            padding: 80px 20px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .hero::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(90deg, transparent, var(--gold), transparent); }
+        .hero::after { content: ''; position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 600px; height: 600px; background: radial-gradient(circle, rgba(197,163,119,0.04) 0%, transparent 70%); pointer-events: none; }
+        .hero-logo { width: 320px; height: auto; margin-bottom: 25px; filter: drop-shadow(0 6px 30px rgba(197,163,119,0.35)); }
+        .hero-divider { width: 60px; height: 1px; background: var(--gold); margin: 20px auto 25px; }
+        .hero h1 { font-family: 'Cinzel', serif; font-size: clamp(26px, 5vw, 44px); font-weight: 600; color: var(--white); margin-bottom: 12px; line-height: 1.3; letter-spacing: 0.02em; }
+        .hero h1 span { color: var(--gold); }
+        .hero-sub { font-size: 17px; font-weight: 300; color: var(--text-dim); margin-bottom: 8px; }
+        .hero-location { font-size: 12px; color: var(--gold); letter-spacing: 3px; text-transform: uppercase; font-weight: 500; }
+
+        .mockup-section { background: var(--black-light); padding: 70px 20px; text-align: center; position: relative; }
+        .mockup-section::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 1px; background: var(--gold); }
+        .section-label { font-size: 11px; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); font-weight: 500; margin-bottom: 12px; }
+        .mockup-section h2 { font-family: 'Cinzel', serif; font-size: clamp(22px, 4vw, 32px); color: var(--white); margin-bottom: 8px; letter-spacing: 0.02em; }
+        .mockup-section p { color: var(--text-dim); margin-bottom: 40px; font-size: 15px; }
+        .mockup-frame { max-width: 950px; margin: 0 auto; padding: 3px; border: 1px solid rgba(197,163,119,0.2); border-radius: 14px; background: linear-gradient(135deg, rgba(197,163,119,0.1), transparent); }
+        .mockup-img { width: 100%; border-radius: 12px; display: block; }
+
+        .features { padding: 80px 20px; max-width: 900px; margin: 0 auto; }
+        .features .section-label, .features h2 { text-align: center; }
+        .features h2 { font-family: 'Cinzel', serif; font-size: 26px; color: var(--white); margin-bottom: 50px; letter-spacing: 0.02em; }
+        .feature-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .feature-card { background: var(--black-card); border: 1px solid rgba(197,163,119,0.1); border-radius: 12px; padding: 30px 25px; transition: border-color 0.3s, transform 0.2s; }
+        .feature-card:hover { border-color: rgba(197,163,119,0.3); transform: translateY(-2px); }
+        .feature-icon { width: 44px; height: 44px; background: var(--gold-dim); border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 16px; }
+        .feature-card h3 { font-size: 15px; font-weight: 600; color: var(--white); margin-bottom: 6px; }
+        .feature-card p { font-size: 13px; color: var(--text-dim); line-height: 1.6; }
+
+        .cta { background: var(--black-light); padding: 80px 20px; text-align: center; position: relative; }
+        .cta::before { content: ''; position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 80px; height: 1px; background: var(--gold); }
+        .cta h2 { font-family: 'Cinzel', serif; font-size: clamp(24px, 4vw, 34px); color: var(--white); margin-bottom: 15px; letter-spacing: 0.02em; }
+        .cta p { color: var(--text-dim); font-size: 15px; max-width: 480px; margin: 0 auto 35px; }
+        .cta-button { display: inline-block; background: var(--gold); color: var(--black); padding: 16px 44px; border-radius: 4px; text-decoration: none; font-weight: 600; font-size: 14px; letter-spacing: 1px; text-transform: uppercase; transition: background 0.3s, transform 0.2s; }
+        .cta-button:hover { background: var(--gold-light); transform: translateY(-1px); }
+        .cta-contact { margin-top: 25px; font-size: 13px; color: var(--text-dim); }
+        .cta-contact a { color: var(--gold); text-decoration: none; }
+
+        .contact-form { padding: 80px 20px; max-width: 560px; margin: 0 auto; text-align: center; }
+        .contact-form h2 { font-family: 'Cinzel', serif; font-size: clamp(22px, 4vw, 30px); color: var(--white); margin-bottom: 8px; letter-spacing: 0.02em; }
+        .contact-form > p { color: var(--text-dim); margin-bottom: 35px; font-size: 14px; }
+        .contact-form form { text-align: left; }
+        .contact-form input, .contact-form textarea { width: 100%; padding: 15px 18px; margin-bottom: 14px; border: 1px solid rgba(197,163,119,0.15); border-radius: 6px; font-size: 14px; font-family: 'Inter', sans-serif; background: var(--black-card); color: var(--text); transition: border-color 0.2s; }
+        .contact-form input::placeholder, .contact-form textarea::placeholder { color: var(--text-dim); }
+        .contact-form input:focus, .contact-form textarea:focus { outline: none; border-color: var(--gold); background: var(--black-light); }
+        .contact-form button { width: 100%; padding: 16px; background: var(--gold); color: var(--black); border: none; border-radius: 4px; font-size: 14px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; cursor: pointer; transition: background 0.3s; }
+        .contact-form button:hover { background: var(--gold-light); }
+        .contact-form button:disabled { background: #555; color: #999; cursor: not-allowed; }
+        .success-box { display: none; text-align: center; padding: 40px 0; }
+        .success-icon { width: 64px; height: 64px; border: 2px solid var(--gold); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 28px; color: var(--gold); margin: 0 auto 18px; }
+        .success-box p { font-size: 17px; color: var(--white); font-weight: 500; }
+        .success-box .sub { font-size: 14px; color: var(--text-dim); margin-top: 6px; font-weight: 400; }
+
+        .trust { padding: 40px 20px; text-align: center; border-top: 1px solid rgba(197,163,119,0.08); }
+        .trust p { font-size: 13px; color: var(--text-dim); max-width: 500px; margin: 0 auto; }
+        .trust-brand { color: var(--gold); font-weight: 500; }
+
+        footer { background: var(--black); padding: 40px 20px; text-align: center; border-top: 1px solid rgba(197,163,119,0.08); }
+        .footer-logo { width: 160px; height: auto; margin: 0 auto 15px; display: block; filter: drop-shadow(0 2px 12px rgba(197,163,119,0.2)); }
+        footer a { color: var(--gold); text-decoration: none; font-size: 13px; }
+        footer a:hover { color: var(--gold-light); }
+        .footer-links { margin: 12px 0; }
+        .footer-links span { color: #333; margin: 0 8px; }
+        .legal-links { margin-bottom: 12px; }
+        .legal-links a { color: #555; text-decoration: none; font-size: 12px; letter-spacing: 1px; }
+        .legal-links a:hover { color: var(--gold); }
+        .legal-links span { color: #333; margin: 0 8px; font-size: 12px; }
+        .copyright { font-size: 11px; color: #444; margin-top: 15px; letter-spacing: 1px; }
+
+        @media (max-width: 600px) {
+            .hero { padding: 50px 16px 40px; }
+            .hero-logo { width: 240px; }
+            .mockup-section, .features, .cta, .contact-form { padding: 50px 16px; }
+        }
+    </style>
+<!-- imperamus:seo-security:start -->
+<meta name="description" content="Dr. Volltest Arztpraxis: Arztpraxis in Hamburg. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; form-action &#x27;self&#x27; mailto:; img-src &#x27;self&#x27; data: https:; media-src &#x27;self&#x27; https:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; https://fonts.googleapis.com; font-src &#x27;self&#x27; data: https://fonts.gstatic.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net; connect-src &#x27;self&#x27; https://imperamus-telegram-relay.imperamus.workers.dev; frame-src https://maps.google.com https://www.google.com; upgrade-insecure-requests">
+<link rel="canonical" href="https://sites.imperamus.de/dr-volltest-arztpraxis/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Dr. Volltest Arztpraxis | Hamburg">
+<meta property="og:description" content="Dr. Volltest Arztpraxis: Arztpraxis in Hamburg. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta property="og:url" content="https://sites.imperamus.de/dr-volltest-arztpraxis/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalClinic", "name": "Dr. Volltest Arztpraxis", "url": "https://sites.imperamus.de/dr-volltest-arztpraxis/"}</script>
+<!-- imperamus:seo-security:end -->
+</head>
+<body>
+
+    <section class="hero">
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="hero-logo">
+        <div class="hero-divider"></div>
+        <h1>Ihr Website-Entwurf,<br><span>Dr. Volltest Arztpraxis</span></h1>
+        <p class="hero-sub">Neue Patienten finden Sie — wenn Sie online sichtbar sind.</p>
+        <div class="hero-location">Hamburg</div>
+    </section>
+
+    <section class="mockup-section">
+        <div class="section-label">Ihr Entwurf</div>
+        <h2>So könnte Ihre Website aussehen</h2>
+        <p>Premium-Design auf Agentur-Niveau — maßgeschneidert für Dr. Volltest Arztpraxis</p>
+        <div class="mockup-frame"><img class="mockup-img" src="mockup.png" alt="Website-Entwurf Dr. Volltest Arztpraxis"></div>
+    </section>
+
+    <section class="features">
+        <div class="section-label">Leistungen</div>
+        <h2>Was wir für Sie vorbereitet haben</h2>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <div class="feature-icon">🏥</div>
+                <h3>Ihre Praxis online</h3>
+                <p>Seriöser, vertrauensvoller Auftritt</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📱</div>
+                <h3>Für jedes Gerät</h3>
+                <p>Patienten finden Sie mobil & am PC</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔍</div>
+                <h3>Bei Google gefunden</h3>
+                <p>Neue Patienten erreichen Sie direkt</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📅</div>
+                <h3>Termin vereinbaren</h3>
+                <p>Online-Terminbuchung rund um die Uhr</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🔒</div>
+                <h3>DSGVO-konform</h3>
+                <p>Datenschutz von Anfang an berücksichtigt</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚀</div>
+                <h3>In 7 Tagen online</h3>
+                <p>Schnelle Umsetzung, keine Wartezeit</p>
+            </div></div>
+    </section>
+
+    <section class="cta">
+        <div class="section-label">Nächster Schritt</div>
+        <h2>Interesse geweckt?</h2>
+        <p>Lassen Sie uns in einem kostenlosen 15-Minuten-Gespräch besprechen, wie wir Ihr Unternehmen online sichtbar machen.</p>
+        <a href="#kontakt" class="cta-button">Erstgespräch vereinbaren</a>
+        <div class="cta-contact">
+            <a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a> &mdash; <a href="https://imperamus.de">imperamus.de</a>
+        </div>
+    </section>
+
+    <section class="contact-form" id="kontakt">
+        <div class="section-label">Kontakt</div>
+        <h2>Jetzt Erstgespräch vereinbaren</h2>
+        <p>Füllen Sie das Formular aus — wir melden uns innerhalb von 24 Stunden.</p>
+        <form id="imperamus-form" onsubmit="return sendForm(event)">
+            <input type="hidden" name="Firma" value="Dr. Volltest Arztpraxis">
+            <input type="hidden" name="Stadt" value="Hamburg">
+            <input type="hidden" name="Branche" value="arzt">
+            <input type="text" name="botcheck" autocomplete="off" tabindex="-1" style="position:absolute;left:-9999px;height:1px;width:1px;opacity:0;">
+            <input type="text" name="name" placeholder="Ihr Name" required>
+            <input type="tel" name="telefon" placeholder="Ihre Telefonnummer" required>
+            <input type="email" name="email" placeholder="Ihre E-Mail (optional)">
+            <textarea name="nachricht" placeholder="Wann können wir Sie am besten erreichen?" rows="3"></textarea>
+            <button type="submit" id="submit-btn">Anfrage senden</button>
+        </form>
+        <div class="success-box" id="form-success">
+            <div class="success-icon">✓</div>
+            <p>Vielen Dank!</p>
+            <p class="sub">Wir melden uns in Kürze bei Ihnen.</p>
+        </div>
+    </section>
+
+    <section class="trust">
+        <p>Dieser Entwurf wurde von <span class="trust-brand">Imperamus</span> speziell für Dr. Volltest Arztpraxis in Hamburg erstellt. Kein Template, kein Standard — nur für Sie.</p>
+    </section>
+
+    <footer>
+        <img src="https://d2ol7oe51mr4n9.cloudfront.net/user_38ZMsIBt7oYDBAr7N4LJp5SHPo1/e89244a9-f5c1-4316-885c-fa1b2044195e.png" alt="Imperamus" class="footer-logo">
+        <div class="footer-links">
+            <a href="https://imperamus.de">imperamus.de</a>
+            <span>|</span>
+            <a href="mailto:kontakt@imperamus.de">kontakt@imperamus.de</a>
+        </div>
+        <div class="legal-links">
+            <a href="https://imperamus.de/impressum.html" target="_blank" rel="noopener">Impressum</a>
+            <span>|</span>
+            <a href="https://imperamus.de/datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>
+        </div>
+        <div class="copyright">© 2026 IMPERAMUS. ALLE RECHTE VORBEHALTEN.</div>
+    </footer>
+
+    <script>
+    async function sendForm(e) {
+        e.preventDefault();
+        const form = document.getElementById('imperamus-form');
+        const btn = document.getElementById('submit-btn');
+        const data = new FormData(form);
+        btn.textContent = 'Wird gesendet...';
+        btn.disabled = true;
+        const payload = Object.fromEntries(data.entries());
+        payload.Quelle = 'customer_landingpage';
+        payload.Landingpage = window.location.href;
+        try {
+            const res = await fetch('https://imperamus-telegram-relay.imperamus.workers.dev', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload)
+            });
+            const result = await res.json().catch(() => ({}));
+            if (!res.ok || !result.ok) throw new Error('relay_failed');
+            form.style.display = 'none';
+            document.getElementById('form-success').style.display = 'block';
+            return false;
+        } catch (err) {
+            btn.textContent = 'E-Mail wird geoeffnet...';
+        }
+        const msg = '\ud83d\udce9 NEUER LEAD!\n\nFirma: Dr. Volltest Arztpraxis\nStadt: Hamburg\nName: ' + data.get('name') + '\nTelefon: ' + data.get('telefon') + '\nE-Mail: ' + (data.get('email') || 'nicht angegeben') + '\nNachricht: ' + (data.get('nachricht') || 'keine') + '\n\nSofort zurückrufen!';
+        window.location.href = 'mailto:kontakt@imperamus.de?subject=' + encodeURIComponent('Erstgespr\u00e4ch Dr. Volltest Arztpraxis') + '&body=' + encodeURIComponent(msg);
+        form.style.display = 'none';
+        document.getElementById('form-success').style.display = 'block';
+        return false;
+    }
+    </script>
+
+</body>
+</html>
