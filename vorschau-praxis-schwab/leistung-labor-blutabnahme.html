@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Labor &amp; Blutabnahme — Herr Christian Schwab Freiburg</title>
+<meta name="description" content="Labor &amp; Blutabnahme in der Praxis Schwab in Freiburg. Laborwerte machen sichtbar, was von außen nicht zu erkennen ist — von Entzündungswerten bis zu Langzeitwerten bei chroni">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Manrope:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --brand:#00868C;--brand-d:#006A6F;--brand-lt:rgba(0,134,140,.10);
+  --tint:#EAF3F1;--tint2:#F4FAF9;--info:#DFF3EF;
+  --text:#0F2E30;--muted:#5A736F;--border:#D7E7E3;--star:#F5A623;
+  --fh:'Fraunces',Georgia,serif;--fb:'Manrope',system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--r:20px;--rp:999px;
+}
+html{scroll-behavior:smooth}
+body{background:#fff;color:var(--text);font-family:var(--fb);font-weight:400;line-height:1.6;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:var(--fh);font-weight:500;line-height:1.12;letter-spacing:-.01em}
+.wrap{max-width:1180px;margin:0 auto;padding:0 28px}
+.pill{display:inline-flex;align-items:center;gap:9px;padding:14px 26px;border-radius:var(--rp);font-size:.95rem;font-weight:600;text-decoration:none;cursor:pointer;border:1.5px solid transparent;transition:all .25s var(--ease);white-space:nowrap}
+.pill-solid{background:var(--brand);color:#fff}
+.pill-solid:hover{background:var(--brand-d);transform:translateY(-2px);box-shadow:0 12px 28px var(--brand-lt)}
+.pill-out{background:#fff;color:var(--brand);border-color:var(--border)}
+.pill-out:hover{border-color:var(--brand);background:var(--tint2)}
+.eyebrow{font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--brand);margin-bottom:14px;display:inline-block}
+
+.info-band{background:var(--info);color:var(--brand-d);text-align:center;font-size:.86rem;font-weight:600;padding:9px 16px}
+.info-band b{font-weight:700}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.86);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border-bottom:1px solid var(--border)}
+.nav-in{max-width:1180px;margin:0 auto;padding:14px 28px;display:flex;align-items:center;gap:36px}
+.logo{font-family:var(--fh);font-weight:600;font-size:1.32rem;color:var(--text);text-decoration:none}
+.logo b{color:var(--brand);font-weight:600}
+.nav-links{display:flex;gap:30px;margin-left:auto}
+.nav-links a{font-size:.92rem;font-weight:500;color:var(--text);text-decoration:none;opacity:.82;transition:opacity .2s}
+.nav-links a:hover{opacity:1;color:var(--brand)}
+.nav .pill{flex-shrink:0;padding:11px 22px;font-size:.88rem}
+@media(max-width:760px){.nav-links{display:none}}
+
+/* SUBPAGE HERO */
+.sub-hero{background:var(--tint);position:relative;overflow:hidden}
+.sub-hero::before{content:'';position:absolute;top:-40%;right:-10%;width:46%;height:170%;background:radial-gradient(circle,var(--brand-lt),transparent 70%);pointer-events:none}
+.sub-hero-in{max-width:880px;margin:0 auto;padding:30px 28px 64px;position:relative;z-index:1}
+.crumb{display:flex;align-items:center;gap:8px;font-size:.86rem;color:var(--muted);margin-bottom:26px}
+.crumb a{color:var(--brand);text-decoration:none;font-weight:600}
+.crumb a:hover{text-decoration:underline}
+.sub-ic{display:inline-flex;align-items:center;justify-content:center;width:72px;height:72px;border-radius:18px;background:#fff;color:var(--brand);border:1px solid var(--border);margin-bottom:22px;box-shadow:0 12px 30px rgba(15,46,48,.08)}
+.sub-ic svg{width:34px;height:34px}
+.sub-hero h1{font-size:clamp(32px,5vw,56px);margin-bottom:18px}
+.sub-lead{font-size:1.18rem;color:var(--muted);max-width:640px;line-height:1.6}
+
+/* CONTENT */
+.sub-body{max-width:880px;margin:0 auto;padding:64px 28px}
+.sub-cols{display:grid;grid-template-columns:1.4fr .85fr;gap:54px;align-items:start}
+.checklist{display:grid;gap:18px;list-style:none}
+.checklist li{display:flex;gap:14px;align-items:flex-start;font-size:1.04rem;line-height:1.5}
+.checklist .tick{flex-shrink:0;width:26px;height:26px;border-radius:50%;background:var(--brand);display:inline-flex;align-items:center;justify-content:center;margin-top:1px}
+.checklist .tick svg{width:14px;height:14px;stroke:#fff;stroke-width:3;fill:none}
+.sub-h2{font-size:1.7rem;margin-bottom:22px}
+.sub-closing{margin-top:34px;font-family:var(--fh);font-style:italic;font-size:1.3rem;color:var(--text);line-height:1.4;padding-left:20px;border-left:3px solid var(--brand)}
+/* aside booking */
+.book{background:var(--tint2);border:1px solid var(--border);border-radius:var(--r);padding:28px 26px;position:sticky;top:96px}
+.book h3{font-size:1.3rem;margin-bottom:8px}
+.book p{font-size:.94rem;color:var(--muted);margin-bottom:18px}
+.book .pill{width:100%;justify-content:center;margin-bottom:10px}
+.book-ph{display:block;text-align:center;font-size:.9rem;color:var(--brand);text-decoration:none;font-weight:600}
+.book-ph:hover{text-decoration:underline}
+
+/* RELATED */
+.rel{background:var(--tint2);border-top:1px solid var(--border);padding:72px 0}
+.rel-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-top:30px}
+.rel-card{display:flex;align-items:center;gap:14px;background:#fff;border:1px solid var(--border);border-radius:14px;padding:18px 20px;text-decoration:none;color:var(--text);font-weight:600;transition:border-color .25s,transform .25s var(--ease)}
+.rel-card:hover{border-color:var(--brand);transform:translateY(-3px)}
+.rel-ic{display:inline-flex;width:40px;height:40px;border-radius:11px;background:var(--brand-lt);color:var(--brand);align-items:center;justify-content:center;flex-shrink:0}
+.rel-ic svg{width:22px;height:22px}
+.rel-arr{margin-left:auto;color:var(--brand)}
+
+.cta{background:var(--brand);color:#fff;text-align:center;padding:84px 28px}
+.cta h2{color:#fff;font-size:clamp(30px,5vw,50px);margin-bottom:16px}
+.cta p{color:rgba(255,255,255,.85);font-size:1.08rem;margin-bottom:28px}
+.cta .pill{background:#fff;color:var(--brand);font-size:1rem;padding:16px 38px}
+.cta .pill:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(0,0,0,.2)}
+
+.footer{background:#0C2426;color:rgba(255,255,255,.5);padding:56px 0 28px}
+.footer-in{max-width:1180px;margin:0 auto;padding:0 28px 38px;display:flex;justify-content:space-between;gap:30px;flex-wrap:wrap;border-bottom:1px solid rgba(255,255,255,.08)}
+.footer-brand{font-family:var(--fh);font-size:1.3rem;color:#fff}
+.footer-brand b{color:var(--brand)}
+.footer a{color:rgba(255,255,255,.6);text-decoration:none}
+.footer a:hover{color:#fff}
+.footer-bot{max-width:1180px;margin:18px auto 0;padding:0 28px;font-size:.74rem}
+.tick svg{stroke:#fff}
+@media(max-width:760px){.sub-cols{grid-template-columns:1fr;gap:34px}.book{position:static}}
+</style>
+<!-- imperamus:seo-security:start -->
+<meta name="description" content="Herr Christian Schwab: Arztpraxis in Freiburg. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; form-action &#x27;self&#x27; mailto:; img-src &#x27;self&#x27; data: https:; media-src &#x27;self&#x27; https:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; https://fonts.googleapis.com; font-src &#x27;self&#x27; data: https://fonts.gstatic.com; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://challenges.cloudflare.com; connect-src &#x27;self&#x27; https://imperamus-telegram-relay.imperamus.workers.dev https://challenges.cloudflare.com; frame-src https://maps.google.com https://www.google.com https://challenges.cloudflare.com; upgrade-insecure-requests">
+<link rel="canonical" href="https://imperamus-sites-proxy.imperamus.workers.dev/herr-christian-schwab/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Herr Christian Schwab | Freiburg">
+<meta property="og:description" content="Herr Christian Schwab: Arztpraxis in Freiburg. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta property="og:url" content="https://imperamus-sites-proxy.imperamus.workers.dev/herr-christian-schwab/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "MedicalClinic", "name": "Herr Christian Schwab", "url": "https://imperamus-sites-proxy.imperamus.workers.dev/herr-christian-schwab/", "address": {"@type": "PostalAddress", "streetAddress": "Eisenbahnstraße 43, 79098 Freiburg im Breisgau"}, "telephone": "+49 761 36614", "aggregateRating": {"@type": "AggregateRating", "ratingValue": 4.8, "reviewCount": 89}}</script>
+<!-- imperamus:seo-security:end -->
+</head>
+<body>
+
+<div class="info-band">✓ Für <b>alle Kassen &amp; Privatpatienten</b> &nbsp;·&nbsp; Termine online buchen &nbsp;·&nbsp; Deutsch &amp; Englisch</div>
+
+<nav class="nav">
+  <div class="nav-in">
+    <a href="index.html" class="logo">Praxis <b>Schwab</b></a>
+    <div class="nav-links">
+      <a href="index.html#leistungen">Leistungen</a><a href="index.html#team">Team</a><a href="index.html#standort">Standort</a><a href="index.html#faq">FAQ</a>
+    </div>
+    <a href="https://www.doctolib.de" target="_blank" rel="noopener" class="pill pill-solid">Jetzt Termin vereinbaren</a>
+  </div>
+</nav>
+
+<section class="sub-hero">
+  <div class="sub-hero-in">
+    <div class="crumb"><a href="index.html">Startseite</a> <span>/</span> <a href="index.html#leistungen">Leistungen</a> <span>/</span> <span>Labor &amp; Blutabnahme</span></div>
+    <span class="sub-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 16v.5a4.5 4.5 0 0 0 9 0V13"/><circle cx="19" cy="11" r="2"/><path d="M6 3H4.5M14 3h1.5"/></svg></span>
+    <h1>Labor &amp; Blutabnahme</h1>
+    <p class="sub-lead">Laborwerte machen sichtbar, was von außen nicht zu erkennen ist — von Entzündungswerten bis zu Langzeitwerten bei chronischen Erkrankungen.</p>
+  </div>
+</section>
+
+<div class="sub-body">
+  <div class="sub-cols">
+    <div>
+      <h2 class="sub-h2">Was Sie erwartet</h2>
+      <ul class="checklist"><li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span><span>Blutabnahme direkt in der Praxis</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span><span>Kontrolle von Blutbild, Blutzucker, Blutfetten und weiteren Werten</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span><span>Verlaufskontrollen bei laufenden Behandlungen</span></li><li><span class="tick"><svg viewBox="0 0 24 24"><path d="m5 13 4 4L19 7"/></svg></span><span>Verständliche Besprechung der Ergebnisse</span></li></ul>
+      <p class="sub-closing">Befunde besprechen wir mit Ihnen persönlich — verständlich und ohne Fachchinesisch.</p>
+    </div>
+    <aside class="book">
+      <h3>Termin vereinbaren</h3>
+      <p>Online rund um die Uhr oder telefonisch — für alle Kassen &amp; Privatpatienten.</p>
+      <a href="https://www.doctolib.de" target="_blank" rel="noopener" class="pill pill-solid">Online buchen →</a>
+      <a href="tel:+4976136614" class="book-ph">☎ +49 761 36614</a>
+    </aside>
+  </div>
+</div>
+
+<section class="rel">
+  <div class="wrap">
+    <span class="eyebrow">Weitere Leistungen</span>
+    <h2 class="sub-h2">Das könnte Sie auch interessieren</h2>
+    <div class="rel-grid"><a class="rel-card" href="leistung-hausarztliche-versorgung.html"><span class="rel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.7 4.6L18.4 9.3 13.7 11 12 15.7 10.3 11 5.6 9.3 10.3 7.6 12 3Z"/></svg></span><span>Hausärztliche Versorgung</span><span class="rel-arr">→</span></a><a class="rel-card" href="leistung-vorsorgeuntersuchungen.html"><span class="rel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5.5 5.8v4.7c0 3.9 2.8 6.7 6.5 7.7 3.7-1 6.5-3.8 6.5-7.7V5.8L12 3Z"/><path d="m9 11 2 2 4-4"/></svg></span><span>Vorsorgeuntersuchungen</span><span class="rel-arr">→</span></a><a class="rel-card" href="leistung-impfungen-reiseberatung.html"><span class="rel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 5.5 5.8v4.7c0 3.9 2.8 6.7 6.5 7.7 3.7-1 6.5-3.8 6.5-7.7V5.8L12 3Z"/><path d="m9 11 2 2 4-4"/></svg></span><span>Impfungen &amp; Reiseberatung</span><span class="rel-arr">→</span></a><a class="rel-card" href="leistung-ekg-diagnostik.html"><span class="rel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3v5a4 4 0 0 0 8 0V3"/><path d="M10 16v.5a4.5 4.5 0 0 0 9 0V13"/><circle cx="19" cy="11" r="2"/><path d="M6 3H4.5M14 3h1.5"/></svg></span><span>EKG &amp; Diagnostik</span><span class="rel-arr">→</span></a><a class="rel-card" href="leistung-rezepte-uberweisungen.html"><span class="rel-ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M6.5 2.5h7l4.5 4.5v14.5h-11.5Z"/><path d="M13.5 2.5V7h4.5M9 13h6M9 16.5h6"/></svg></span><span>Rezepte &amp; Überweisungen</span><span class="rel-arr">→</span></a></div>
+  </div>
+</section>
+
+<section class="cta">
+  <h2>In unter einer Minute zum Termin.</h2>
+  <p>Buchen Sie online über Doctolib — schnell, unkompliziert, oft noch am selben Tag.</p>
+  <a href="https://www.doctolib.de" target="_blank" rel="noopener" class="pill">Jetzt Termin vereinbaren →</a>
+</section>
+
+<footer class="footer">
+  <div class="footer-in">
+    <div class="footer-brand">Praxis <b>Schwab</b></div>
+    <div style="display:flex;gap:24px;flex-wrap:wrap;font-size:.86rem">
+      <a href="index.html#leistungen">Leistungen</a>
+      <a href="index.html#standort">Standort</a>
+      <a href="tel:+4976136614">+49 761 36614</a>
+      <a href="index.html">Zur Startseite</a>
+    </div>
+  </div>
+  <div class="footer-bot">© 2026 Herr Christian Schwab — Hausarztpraxis Freiburg &nbsp;·&nbsp; <span style="color:rgba(255,255,255,.25)">Website by IMPERAMUS</span></div>
+</footer>
+
+</body>
+</html>
