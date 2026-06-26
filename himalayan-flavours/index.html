@@ -1,0 +1,563 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Himalayan Flavours — Restaurant Berlin-Lichterfelde</title>
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+
+
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#0E0A07;--surface:#1A1410;--wine:#B23A1E;--gold:#E55B2A;
+  --text:#F3E9DD;--muted:#8C857D;--line:#2E2925;
+  --fd:'Fraunces','Cormorant Garamond',Georgia,serif;--fb:'Manrope','Mulish',system-ui,sans-serif;
+  --ease:cubic-bezier(.22,1,.36,1);
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--fb);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+::selection{background:var(--wine);color:var(--text)}
+em{font-style:italic;color:var(--gold)}
+.wrap{max-width:1200px;margin:0 auto;padding:0 28px}
+
+/* Grain-Atmosphäre über allem */
+body::after{content:'';position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)' opacity='1'/%3E%3C/svg%3E")}
+
+/* NAV */
+.nav{position:fixed;top:0;left:0;right:0;z-index:50;display:flex;align-items:center;gap:36px;padding:20px 36px;
+  background:linear-gradient(to bottom,rgba(0,0,0,.55),transparent);transition:background .4s}
+.nav.s{background:color-mix(in srgb,var(--bg) 92%,transparent);backdrop-filter:blur(14px);box-shadow:0 1px 0 var(--line);padding:14px 36px}
+.logo{font-family:var(--fd);font-weight:600;font-size:1.45rem;letter-spacing:.01em;color:var(--text);text-decoration:none;white-space:nowrap}
+.logo i{font-style:italic;color:var(--gold)}
+.nav-links{display:flex;gap:30px;margin-left:auto}
+.nav-links a{font-size:.82rem;font-weight:400;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .25s}
+.nav-links a:hover{color:var(--gold)}
+.nav-cta{flex-shrink:0;background:var(--gold);color:#1A0F08;font-weight:700;font-size:.82rem;letter-spacing:.06em;padding:12px 26px;border-radius:999px;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s}
+.nav-cta:hover{transform:translateY(-2px);box-shadow:0 12px 30px rgba(200,160,80,.25)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;margin-left:auto}
+.burger span{width:26px;height:1.5px;background:var(--text)}
+.mov{position:fixed;inset:0;z-index:60;background:color-mix(in srgb,var(--bg) 97%,transparent);backdrop-filter:blur(10px);display:flex;flex-direction:column;justify-content:center;gap:26px;padding:0 40px;opacity:0;pointer-events:none;transition:opacity .35s}
+.mov.open{opacity:1;pointer-events:auto}
+.mov a{font-family:var(--fd);font-size:2rem;color:var(--text);text-decoration:none}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;z-index:0}
+.hero-bg img{width:100%;height:100%;object-fit:cover;filter:saturate(.85) brightness(.6)}
+.hero-bg::after{content:'';position:absolute;inset:0;
+  background:linear-gradient(to bottom,color-mix(in srgb,var(--bg) 55%,transparent) 0%,color-mix(in srgb,var(--bg) 78%,transparent) 55%,var(--bg) 100%),
+             radial-gradient(ellipse 60% 50% at 70% 80%,rgba(200,110,40,.18),transparent 70%)}
+.embers{position:absolute;inset:0;z-index:1;pointer-events:none}
+.ember{position:absolute;bottom:-12px;border-radius:50%;background:radial-gradient(circle,#FFC46B 0%,#E8742B 55%,transparent 75%);
+  filter:blur(.6px);opacity:0;animation:rise linear infinite}
+@keyframes rise{
+  0%{transform:translate(0,0) scale(1);opacity:0}
+  8%{opacity:.85}
+  60%{opacity:.5}
+  100%{transform:translate(var(--dx),-105vh) scale(.35);opacity:0}
+}
+.hero-inner{position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:140px 28px 90px;width:100%}
+.eyebrow{display:inline-flex;align-items:center;gap:14px;font-size:.74rem;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold);margin-bottom:30px}
+.eyebrow::before,.eyebrow::after{content:'';height:1px;width:44px;background:var(--gold);opacity:.6}
+.hero h1{font-family:var(--fd);font-weight:600;font-size:clamp(52px,8.4vw,118px);line-height:.98;letter-spacing:-.015em;max-width:13ch}
+.hero-sub{max-width:520px;color:var(--muted);font-size:1.06rem;margin:30px 0 40px}
+.cta-row{display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+.btn-gold{display:inline-flex;align-items:center;gap:10px;background:var(--gold);color:#1A0F08;font-weight:700;font-size:.95rem;padding:17px 36px;border-radius:999px;text-decoration:none;transition:transform .25s var(--ease),box-shadow .25s}
+.btn-gold:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(200,160,80,.3)}
+.btn-ghost{display:inline-flex;align-items:center;gap:10px;color:var(--text);font-weight:600;font-size:.95rem;padding:16px 32px;border:1px solid color-mix(in srgb,var(--text) 30%,transparent);border-radius:999px;text-decoration:none;transition:border-color .25s,color .25s}
+.btn-ghost:hover{border-color:var(--gold);color:var(--gold)}
+.hero-meta{display:flex;flex-wrap:wrap;gap:0 34px;margin-top:64px;padding-top:26px;border-top:1px solid color-mix(in srgb,var(--text) 14%,transparent);font-size:.88rem;color:var(--muted)}
+.hero-meta b{color:var(--gold);font-weight:600;letter-spacing:2px}
+.hero-meta span{display:inline-flex;align-items:center;gap:9px;padding:4px 0}
+
+/* Reveal-Animationen (kompatibel zum Video-Renderer) */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .9s var(--ease),transform .9s var(--ease)}
+.reveal.in{opacity:1;transform:none}
+.hero .reveal{transition-duration:1.1s}
+
+/* MARQUEE */
+.mq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:18px 0;overflow:hidden;background:color-mix(in srgb,var(--wine) 22%,var(--bg))}
+.mq-track{display:flex;width:max-content;animation:mq 36s linear infinite}
+.mq-track span{font-family:var(--fd);font-style:italic;font-size:1.18rem;color:color-mix(in srgb,var(--text) 80%,transparent);white-space:nowrap;display:inline-flex;align-items:center}
+.mq-track span i{font-style:normal;color:var(--gold);font-size:.65rem;margin:0 30px;opacity:.7}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* SEKTIONEN */
+section{padding:120px 0}
+.sec-eyebrow{font-size:.72rem;font-weight:600;letter-spacing:.32em;text-transform:uppercase;color:var(--gold);display:block;margin-bottom:20px}
+.sec-h{font-family:var(--fd);font-weight:600;font-size:clamp(38px,5.4vw,72px);line-height:1.04;letter-spacing:-.01em}
+
+/* MENÜ — editoriale Liste */
+.menu-grid{display:grid;grid-template-columns:.85fr 1.15fr;gap:70px;align-items:start}
+.menu-left{position:sticky;top:110px}
+.menu-left p{color:var(--muted);margin-top:22px;max-width:36ch}
+.menu-list{border-top:1px solid var(--line)}
+.menu-row{display:flex;align-items:baseline;gap:26px;padding:26px 10px;border-bottom:1px solid var(--line);position:relative;transition:background .35s,padding-left .35s var(--ease)}
+.menu-row:hover{background:linear-gradient(90deg,color-mix(in srgb,var(--wine) 30%,transparent),transparent 70%);padding-left:22px}
+.menu-num{font-size:.72rem;letter-spacing:.18em;color:var(--gold);font-weight:600}
+.menu-name{font-family:var(--fd);font-weight:600;font-size:clamp(22px,2.6vw,34px);line-height:1.15}
+.menu-arrow{margin-left:auto;color:var(--gold);opacity:0;transform:translateX(-8px);transition:opacity .3s,transform .3s var(--ease)}
+.menu-row:hover .menu-arrow{opacity:1;transform:none}
+
+/* ATMOSPHÄRE + PROZESS */
+.atmo{background:var(--surface);position:relative}
+.atmo::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 15% 20%,rgba(139,38,53,.25),transparent 70%)}
+.atmo-grid{position:relative;display:grid;grid-template-columns:1.05fr .95fr;gap:80px;align-items:center}
+.atmo-imgs{position:relative;height:560px}
+.atmo-imgs img{position:absolute;object-fit:cover;border-radius:6px;box-shadow:0 30px 80px rgba(0,0,0,.5)}
+.atmo-imgs img:first-child{width:72%;height:78%;top:0;left:0;z-index:1}
+.atmo-imgs img:last-child{width:52%;height:55%;bottom:0;right:0;z-index:2;border:6px solid var(--surface)}
+.steps{margin-top:52px;display:grid;gap:0}
+.step{display:flex;gap:26px;padding:26px 0;border-top:1px solid var(--line);align-items:baseline}
+.step-n{font-family:var(--fd);font-style:italic;font-size:2.6rem;color:var(--gold);line-height:1;flex-shrink:0;width:52px}
+.step p{color:var(--muted);font-size:.98rem;max-width:52ch}
+
+/* ZITAT */
+.quote{text-align:center;position:relative;overflow:hidden}
+.quote::before{content:'„';position:absolute;top:-70px;left:50%;transform:translateX(-50%);font-family:var(--fd);font-size:26rem;color:var(--wine);opacity:.25;line-height:1;pointer-events:none}
+.stars{color:var(--gold);letter-spacing:8px;font-size:1.25rem;margin-bottom:30px;display:block}
+.quote blockquote{font-family:var(--fd);font-style:italic;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.3;max-width:21ch;margin:0 auto 28px}
+.quote cite{font-style:normal;font-size:.78rem;letter-spacing:.26em;text-transform:uppercase;color:var(--muted)}
+
+/* CTA */
+.ctab{background:linear-gradient(180deg,var(--bg),color-mix(in srgb,var(--wine) 28%,var(--bg)) 130%);text-align:center;border-top:1px solid var(--line)}
+.ctab h2{font-family:var(--fd);font-weight:600;font-style:italic;font-size:clamp(44px,7vw,96px);line-height:1.02}
+.ctab p{color:var(--muted);margin:26px 0 18px}
+.bigphone{display:inline-block;font-family:var(--fd);font-weight:600;font-size:clamp(30px,4.6vw,58px);color:var(--gold);text-decoration:none;border-bottom:2px solid color-mix(in srgb,var(--gold) 40%,transparent);padding-bottom:6px;transition:border-color .3s,letter-spacing .4s var(--ease)}
+.bigphone:hover{border-color:var(--gold);letter-spacing:.02em}
+
+/* STANDORT */
+.loc{background:var(--surface)}
+.loc-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:64px}
+.loc-row{display:flex;gap:14px;color:var(--muted);font-size:.96rem;margin:10px 0}
+.loc-row b{color:var(--gold);font-weight:600;min-width:22px}
+.hours{margin:34px 0;border:1px solid var(--line);border-radius:6px;overflow:hidden}
+.hours-h{background:color-mix(in srgb,var(--gold) 16%,var(--surface));color:var(--gold);font-size:.7rem;font-weight:700;letter-spacing:.26em;text-transform:uppercase;padding:13px 22px}
+.hrow{display:flex;justify-content:space-between;gap:20px;padding:12px 22px;font-size:.9rem;border-top:1px solid var(--line)}
+.hrow span:last-child{color:var(--muted)}
+.map{border-radius:6px;overflow:hidden;border:1px solid var(--line);min-height:460px;position:relative}
+.map iframe{width:100%;height:100%;min-height:460px;border:0;filter:grayscale(1) invert(.92) contrast(.9) sepia(.18)}
+
+/* FOOTER */
+.footer{padding:70px 0 36px;border-top:1px solid var(--line);text-align:center}
+.f-brand{font-family:var(--fd);font-weight:600;font-size:1.7rem;margin-bottom:10px}
+.f-brand i{font-style:italic;color:var(--gold)}
+.footer p{color:var(--muted);font-size:.86rem}
+.f-links{display:flex;justify-content:center;gap:26px;margin:24px 0}
+.f-links a{color:var(--muted);font-size:.8rem;letter-spacing:.1em;text-transform:uppercase;text-decoration:none;transition:color .25s}
+.f-links a:hover{color:var(--gold)}
+.f-bottom{margin-top:30px;padding-top:24px;border-top:1px solid var(--line);font-size:.72rem;color:color-mix(in srgb,var(--muted) 70%,transparent);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+
+/* Float-CTA */
+.float-cta{position:fixed;right:22px;bottom:22px;z-index:55;background:var(--gold);color:#1A0F08;font-weight:700;font-size:.86rem;padding:14px 24px;border-radius:999px;text-decoration:none;box-shadow:0 14px 40px rgba(0,0,0,.45);transition:transform .25s var(--ease)}
+.float-cta:hover{transform:translateY(-3px)}
+
+@media(prefers-reduced-motion:reduce){
+  .reveal{opacity:1;transform:none;transition:none}
+  .ember,.mq-track{animation:none!important}
+}
+@media(max-width:960px){
+  .menu-grid,.atmo-grid,.loc-grid{grid-template-columns:1fr;gap:48px}
+  .menu-left{position:static}
+  .atmo-imgs{height:420px}
+  .nav-links,.nav-cta{display:none}
+  .burger{display:flex}
+  section{padding:84px 0}
+}
+
+/* Inline-Logo (Marken-Emblem) */
+.logo{display:inline-flex;align-items:center;gap:11px}
+.logo-mark{display:inline-flex;width:36px;height:36px;flex-shrink:0}
+.logo-mark svg{width:100%;height:100%;display:block}
+.logo-wm{font-family:var(--fd);font-weight:600;letter-spacing:.01em}
+.hero-badge{width:112px;height:112px;margin-bottom:26px}
+.hero-badge svg{width:100%;height:100%;display:block;filter:drop-shadow(0 10px 30px rgba(0,0,0,.55))}
+.f-mark{display:block;width:58px;height:58px;margin:0 auto 16px}
+.f-mark svg{width:100%;height:100%;display:block}
+@media(max-width:960px){.hero-badge{width:88px;height:88px;margin-bottom:20px}}
+
+/* Sonderangebote (Speisekarte im Flyer-Stil) */
+.specials{padding:100px 0;background:linear-gradient(180deg,var(--bg),var(--surface) 50%,var(--bg))}
+.spec-banner{text-align:center;margin-bottom:52px}
+.spec-banner span{display:inline-block;font-family:var(--fd);font-size:clamp(26px,4vw,42px);color:var(--gold);letter-spacing:.1em;text-transform:uppercase;padding:12px 44px;border-top:1px solid color-mix(in srgb,var(--gold) 70%,transparent);border-bottom:1px solid color-mix(in srgb,var(--gold) 70%,transparent)}
+.spec-grid{display:grid;grid-template-columns:1fr 1fr;gap:28px;max-width:1000px;margin:0 auto}
+.spec-card{border:1px solid color-mix(in srgb,var(--gold) 42%,transparent);border-radius:6px;padding:36px 34px;background:color-mix(in srgb,var(--surface) 65%,#000)}
+.spec-head{display:flex;align-items:baseline;gap:12px;margin-bottom:24px}
+.spec-head h3{font-family:var(--fd);font-size:1.85rem;font-weight:600;color:var(--text);text-transform:uppercase;letter-spacing:.01em;line-height:1.05}
+.spec-tag{font-size:1rem;color:var(--gold);font-style:italic;font-family:var(--fd)}
+.spec-list{list-style:none;display:flex;flex-direction:column;gap:14px;margin-bottom:28px}
+.spec-list li{position:relative;padding-left:24px;color:var(--muted);font-size:.96rem;line-height:1.5}
+.spec-list li::before{content:'✦';position:absolute;left:0;top:2px;color:var(--gold);font-size:.78rem}
+.spec-price{display:flex;flex-direction:column;align-items:center;gap:3px;border:1px solid var(--gold);border-radius:4px;padding:16px}
+.spec-price b{font-family:var(--fd);font-size:2.2rem;color:var(--gold);font-weight:600;line-height:1}
+.spec-price span{font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+.spec-foot{text-align:center;margin-top:44px;color:var(--gold);letter-spacing:.22em;text-transform:uppercase;font-size:.82rem}
+@media(max-width:760px){.spec-grid{grid-template-columns:1fr}}
+
+/* Food-Kategorie-Kacheln (Referenz-Stil) */
+.tiles-sec{padding:96px 0}
+.tiles-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-top:48px}
+.tile{position:relative;display:block;aspect-ratio:1;border-radius:8px;overflow:hidden;text-decoration:none}
+.tile img{width:100%;height:100%;object-fit:cover;transition:transform .6s var(--ease)}
+.tile::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.8) 0%,rgba(0,0,0,.12) 55%,transparent 100%)}
+.tile:hover img{transform:scale(1.07)}
+.tile-label{position:absolute;left:0;right:0;bottom:20px;z-index:2;text-align:center;font-family:var(--fd);font-size:1.5rem;font-weight:600;color:var(--text);letter-spacing:.02em}
+.tile-border{position:absolute;inset:0;z-index:3;border:1.5px solid transparent;border-radius:8px;transition:border-color .3s;pointer-events:none}
+.tile:hover .tile-border{border-color:var(--gold)}
+@media(max-width:760px){.tiles-grid{grid-template-columns:1fr 1fr;gap:12px}.tile-label{font-size:1.25rem}}
+</style>
+<!-- imperamus:seo-security:start -->
+<meta name="description" content="Himalayan Flavours: Gastronomiebetrieb in Berlin-Lichterfelde. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<meta http-equiv="Content-Security-Policy" content="default-src &#x27;self&#x27;; base-uri &#x27;self&#x27;; object-src &#x27;none&#x27;; form-action &#x27;self&#x27; mailto:; img-src &#x27;self&#x27; data: https:; media-src &#x27;self&#x27; https:; style-src &#x27;self&#x27; &#x27;unsafe-inline&#x27;; font-src &#x27;self&#x27; data:; script-src &#x27;self&#x27; &#x27;unsafe-inline&#x27; https://cdnjs.cloudflare.com https://unpkg.com https://cdn.jsdelivr.net https://challenges.cloudflare.com; connect-src &#x27;self&#x27; https://imperamus-telegram-relay.imperamus.workers.dev https://challenges.cloudflare.com; frame-src https://maps.google.com https://www.google.com https://challenges.cloudflare.com; upgrade-insecure-requests">
+<link rel="canonical" href="https://sites.imperamus.de/himalayan-flavours/">
+<meta property="og:locale" content="de_DE">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Himalayan Flavours | Berlin-Lichterfelde">
+<meta property="og:description" content="Himalayan Flavours: Gastronomiebetrieb in Berlin-Lichterfelde. Leistungen, Kontakt, Standort und persoenliche Informationen auf einen Blick.">
+<meta property="og:url" content="https://sites.imperamus.de/himalayan-flavours/">
+<meta name="twitter:card" content="summary_large_image">
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "LocalBusiness", "name": "Himalayan Flavours", "url": "https://sites.imperamus.de/himalayan-flavours/", "address": {"@type": "PostalAddress", "streetAddress": "Hindenburgdamm 57a, 12203 Berlin-Lichterfelde"}}</script>
+<!-- imperamus:seo-security:end -->
+</head>
+<body>
+
+<nav class="nav" id="nav">
+  <a class="logo" href="#top"><span class="logo-mark"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Himalayan Flavours Emblem">
+  <defs>
+    <linearGradient id="hfGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0D17A"/>
+      <stop offset="0.5" stop-color="#D8A24A"/>
+      <stop offset="1" stop-color="#A9772A"/>
+    </linearGradient>
+    <linearGradient id="hfGoldBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8A050"/>
+      <stop offset="1" stop-color="#8A6322"/>
+    </linearGradient>
+    <radialGradient id="hfSun" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#D9492F"/>
+      <stop offset="1" stop-color="#A8311E"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Badge -->
+  <circle cx="120" cy="120" r="117" fill="#0E0A07"/>
+  <circle cx="120" cy="120" r="116" fill="none" stroke="#D8A24A" stroke-width="2"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#D8A24A" stroke-width="0.8" opacity="0.45"/>
+
+  <!-- Sun -->
+  <circle cx="120" cy="96" r="23" fill="url(#hfSun)"/>
+
+  <!-- Back range -->
+  <path d="M44 150 L78 86 L104 124 L120 100 L140 70 L196 150 Z" fill="url(#hfGoldBack)" opacity="0.65"/>
+  <!-- Front range -->
+  <path d="M52 152 L92 92 L116 122 L138 84 L188 152 Z" fill="url(#hfGold)"/>
+  <!-- Snow caps -->
+  <path d="M92 92 L83 106 L90 103 L95 110 L101 100 Z" fill="#FFF6E6"/>
+  <path d="M138 84 L129 99 L136 96 L141 104 L147 93 Z" fill="#FFF6E6"/>
+
+  <!-- Steam -->
+  <g fill="none" stroke="#D8A24A" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+    <path d="M106 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M120 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M134 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+  </g>
+
+  <!-- Bowl -->
+  <path d="M90 156 Q120 184 150 156 Z" fill="url(#hfGold)"/>
+  <ellipse cx="120" cy="156" rx="30" ry="5.5" fill="#F0D17A"/>
+  <rect x="103" y="168" width="34" height="4.5" rx="2.2" fill="url(#hfGold)"/>
+
+  <!-- Flourish line -->
+  <g stroke="#D8A24A" stroke-width="1.4" opacity="0.8">
+    <line x1="78" y1="194" x2="108" y2="194"/>
+    <line x1="132" y1="194" x2="162" y2="194"/>
+  </g>
+  <circle cx="120" cy="194" r="3" fill="#D8A24A"/>
+</svg>
+</span><span class="logo-wm">Himalayan Flavours</span></a>
+  <div class="nav-links">
+    <a href="#gerichte">Gerichte</a><a href="#angebote">Angebote</a><a href="#karte">Karte</a><a href="#standort">Standort</a>
+  </div>
+  <a class="nav-cta" href="tel:03012345678">Jetzt anrufen &amp; bestellen</a>
+  <button class="burger" id="burger" aria-label="Menü"><span></span><span></span><span></span></button>
+</nav>
+<div class="mov" id="mov">
+  <a href="#karte">Karte</a><a href="#haus">Das Haus</a><a href="#standort">Standort</a>
+  <a href="tel:03012345678" style="color:var(--gold)">030 123 456 78</a>
+</div>
+
+<header class="hero" id="top">
+  <div class="hero-bg"><img src="assets/hero.webp" alt="Himalayan Flavours"></div>
+  <div class="embers" id="embers"></div>
+  <div class="hero-inner">
+    <div class="hero-badge reveal"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Himalayan Flavours Emblem">
+  <defs>
+    <linearGradient id="hfGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0D17A"/>
+      <stop offset="0.5" stop-color="#D8A24A"/>
+      <stop offset="1" stop-color="#A9772A"/>
+    </linearGradient>
+    <linearGradient id="hfGoldBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8A050"/>
+      <stop offset="1" stop-color="#8A6322"/>
+    </linearGradient>
+    <radialGradient id="hfSun" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#D9492F"/>
+      <stop offset="1" stop-color="#A8311E"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Badge -->
+  <circle cx="120" cy="120" r="117" fill="#0E0A07"/>
+  <circle cx="120" cy="120" r="116" fill="none" stroke="#D8A24A" stroke-width="2"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#D8A24A" stroke-width="0.8" opacity="0.45"/>
+
+  <!-- Sun -->
+  <circle cx="120" cy="96" r="23" fill="url(#hfSun)"/>
+
+  <!-- Back range -->
+  <path d="M44 150 L78 86 L104 124 L120 100 L140 70 L196 150 Z" fill="url(#hfGoldBack)" opacity="0.65"/>
+  <!-- Front range -->
+  <path d="M52 152 L92 92 L116 122 L138 84 L188 152 Z" fill="url(#hfGold)"/>
+  <!-- Snow caps -->
+  <path d="M92 92 L83 106 L90 103 L95 110 L101 100 Z" fill="#FFF6E6"/>
+  <path d="M138 84 L129 99 L136 96 L141 104 L147 93 Z" fill="#FFF6E6"/>
+
+  <!-- Steam -->
+  <g fill="none" stroke="#D8A24A" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+    <path d="M106 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M120 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M134 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+  </g>
+
+  <!-- Bowl -->
+  <path d="M90 156 Q120 184 150 156 Z" fill="url(#hfGold)"/>
+  <ellipse cx="120" cy="156" rx="30" ry="5.5" fill="#F0D17A"/>
+  <rect x="103" y="168" width="34" height="4.5" rx="2.2" fill="url(#hfGold)"/>
+
+  <!-- Flourish line -->
+  <g stroke="#D8A24A" stroke-width="1.4" opacity="0.8">
+    <line x1="78" y1="194" x2="108" y2="194"/>
+    <line x1="132" y1="194" x2="162" y2="194"/>
+  </g>
+  <circle cx="120" cy="194" r="3" fill="#D8A24A"/>
+</svg>
+</div>
+    <span class="eyebrow reveal">Nepalesische &amp; Indische Küche · Berlin-Lichterfelde</span>
+    <h1 class="reveal" style="transition-delay:90ms">Echte Himalaya-Küche, mitten <em>in Lichterfelde.</em></h1>
+    <p class="hero-sub reveal" style="transition-delay:180ms">Namaste &amp; willkommen bei Himalayan Flavours — traditionelle Aromen und echte kulinarische Kunst aus Nepal und Indien. Frisch und mit Liebe zubereitet, zum Genießen vor Ort oder zum Mitnehmen.</p>
+    <div class="cta-row reveal" style="transition-delay:270ms">
+      <a class="btn-gold" href="tel:03012345678">☎&nbsp;Jetzt anrufen &amp; bestellen</a>
+      <a class="btn-ghost" href="#karte">Unsere Karte ↓</a>
+    </div>
+    <div class="hero-meta reveal" style="transition-delay:360ms">
+      <span>Nepalesische &amp; Indische Küche</span><span>Frisch &amp; hausgemacht</span><span>Hindenburgdamm 57a, 12203 Berlin-Lichterfelde</span>
+    </div>
+  </div>
+</header>
+
+<div class="mq"><div class="mq-track"><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span><span>Momos — handgefaltete Teigtaschen<i>✦</i></span><span>Tandoori-Spezialitäten aus dem Lehmofen<i>✦</i></span><span>Currys — mild bis feurig<i>✦</i></span><span>Vegetarische &amp; vegane Gerichte<i>✦</i></span><span>Frisches Naan &amp; goldgelbes Bhatura<i>✦</i></span><span>Mango Lassi &amp; Getränke<i>✦</i></span></div></div>
+
+<section class="tiles-sec" id="gerichte"><div class="wrap"><span class="sec-eyebrow reveal" style="text-align:center;display:block">Frisch zubereitet</span><h2 class="sec-h reveal" style="text-align:center">Beliebte Gerichte</h2><div class="tiles-grid"><a class="tile reveal" href="#karte" style="transition-delay:0ms"><img src="assets/momos.webp" alt="Momos" loading="lazy"><span class="tile-label">Momos</span><span class="tile-border"></span></a><a class="tile reveal" href="#karte" style="transition-delay:70ms"><img src="assets/curry.webp" alt="Curry" loading="lazy"><span class="tile-label">Curry</span><span class="tile-border"></span></a><a class="tile reveal" href="#karte" style="transition-delay:140ms"><img src="assets/biryani.webp" alt="Biryani" loading="lazy"><span class="tile-label">Biryani</span><span class="tile-border"></span></a><a class="tile reveal" href="#karte" style="transition-delay:210ms"><img src="assets/tandoori.webp" alt="Tandoori" loading="lazy"><span class="tile-label">Tandoori</span><span class="tile-border"></span></a></div></div></section>
+
+<section class="specials" id="angebote"><div class="wrap"><div class="spec-banner reveal"><span>Sonderangebote</span></div><div class="spec-grid"><div class="spec-card reveal"><div class="spec-head"><h3>Chicken Curry</h3><span class="spec-tag">Menü</span></div><ul class="spec-list"><li>Zartes Hähnchenbrustfilet in traditioneller Currysauce</li><li>Luftig-frittiertes, goldgelbes Bhatura-Brot</li><li>Erfrischender, originaler Mango Lassi (0,3 l)</li></ul><div class="spec-price"><b>11,90 €</b><span>Komplettpreis</span></div></div><div class="spec-card reveal"><div class="spec-head"><h3>Lamm Curry</h3><span class="spec-tag">Menü</span></div><ul class="spec-list"><li>Saftiges Lammfleisch nach nepalesischer Art in gewürzter Currysauce</li><li>Luftig-frittiertes, goldgelbes Bhatura-Brot</li><li>Erfrischender, originaler Mango Lassi (0,3 l)</li></ul><div class="spec-price"><b>12,90 €</b><span>Komplettpreis</span></div></div></div><p class="spec-foot reveal">Genuss vor Ort oder zum Mitnehmen</p></div></section>
+
+<section id="karte">
+  <div class="wrap menu-grid">
+    <div class="menu-left reveal">
+      <span class="sec-eyebrow">Die Karte</span>
+      <h2 class="sec-h">Die ganze Karte — aus Nepal und Indien.</h2>
+      <p>Frisch zubereitet, vegetarisch und mit Fleisch. Genuss vor Ort oder zum Mitnehmen.</p>
+    </div>
+    <div class="menu-list">
+      <div class="menu-row reveal" style="transition-delay:0ms">
+        <span class="menu-num">01</span>
+        <span class="menu-name">Momos — handgefaltete Teigtaschen</span>
+        <span class="menu-arrow">→</span>
+      </div>
+      <div class="menu-row reveal" style="transition-delay:60ms">
+        <span class="menu-num">02</span>
+        <span class="menu-name">Tandoori-Spezialitäten aus dem Lehmofen</span>
+        <span class="menu-arrow">→</span>
+      </div>
+      <div class="menu-row reveal" style="transition-delay:120ms">
+        <span class="menu-num">03</span>
+        <span class="menu-name">Currys — mild bis feurig</span>
+        <span class="menu-arrow">→</span>
+      </div>
+      <div class="menu-row reveal" style="transition-delay:180ms">
+        <span class="menu-num">04</span>
+        <span class="menu-name">Vegetarische &amp; vegane Gerichte</span>
+        <span class="menu-arrow">→</span>
+      </div>
+      <div class="menu-row reveal" style="transition-delay:240ms">
+        <span class="menu-num">05</span>
+        <span class="menu-name">Frisches Naan &amp; goldgelbes Bhatura</span>
+        <span class="menu-arrow">→</span>
+      </div>
+      <div class="menu-row reveal" style="transition-delay:300ms">
+        <span class="menu-num">06</span>
+        <span class="menu-name">Mango Lassi &amp; Getränke</span>
+        <span class="menu-arrow">→</span>
+      </div></div>
+  </div>
+</section>
+
+<section class="atmo" id="haus">
+  <div class="wrap atmo-grid">
+    <div class="atmo-imgs reveal">
+      <img src="assets/curry.webp" alt="Gastraum" loading="lazy">
+      <img src="assets/biryani.webp" alt="Frisch zubereitet" loading="lazy">
+    </div>
+    <div>
+      <span class="sec-eyebrow reveal">Das Haus</span>
+      <h2 class="sec-h reveal" style="transition-delay:80ms">Vom Himalaya auf Ihren Teller.</h2>
+      <div class="steps">
+      <div class="step reveal" style="transition-delay:0ms">
+        <span class="step-n">1</span>
+        <p>Anrufen oder vorbeikommen — reservieren Sie einen Tisch oder bestellen Sie telefonisch zum Abholen.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:90ms">
+        <span class="step-n">2</span>
+        <p>Frisch zubereitet — jedes Gericht entsteht à la minute, nach authentischen Familienrezepten aus Nepal und Indien.</p>
+      </div>
+      <div class="step reveal" style="transition-delay:180ms">
+        <span class="step-n">3</span>
+        <p>Genießen — am Hindenburgdamm 57a in Berlin-Lichterfelde, gemütlich vor Ort oder bequem zum Mitnehmen.</p>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="wrap reveal">
+    <span class="stars"></span>
+    <blockquote>Authentische Familienrezepte, frische Zutaten täglich und echte nepalesisch-indische Kochkunst — bei uns schmeckt man die Sorgfalt in jedem Gericht.</blockquote>
+    <cite>Mit Liebe zubereitet — aus Nepal und Indien.</cite>
+  </div>
+</section>
+
+<section class="ctab">
+  <div class="wrap reveal">
+    <h2>Heute Abend Lust auf Himalaya?</h2>
+    <p>Reservieren Sie einen Tisch oder bestellen Sie vor zum Abholen — wir freuen uns auf Ihren Besuch. Namaste.</p>
+    <a class="bigphone" href="tel:03012345678">030 123 456 78</a>
+  </div>
+</section>
+
+<section class="loc" id="standort">
+  <div class="wrap loc-grid">
+    <div class="reveal">
+      <span class="sec-eyebrow">Standort</span>
+      <h2 class="sec-h">Sie finden uns hier.</h2>
+      <div style="margin-top:30px">
+        <div class="loc-row"><b>⌖</b><span>Hindenburgdamm 57a, 12203 Berlin-Lichterfelde</span></div>
+        <div class="loc-row"><b>☎</b><a href="tel:03012345678" style="color:var(--text);text-decoration:none">030 123 456 78</a></div>
+        <div class="loc-row"><b>&#9678;</b><a href="https://instagram.com/himalayanflavoursberlin" target="_blank" rel="noopener" style="color:var(--text);text-decoration:none">@himalayanflavoursberlin</a></div>
+      </div>
+      <div class="hours">
+        <div class="hours-h">Öffnungszeiten</div>
+        <div class="hrow"><span>Aktuelle Zeiten</span><span>030 123 456 78</span></div>
+      </div>
+      <a class="btn-ghost" href="https://www.google.com/maps/search/?api=1&query=Hindenburgdamm+57a%2C+12203+Berlin-Lichterfelde%2C+Berlin-Lichterfelde" target="_blank" rel="noopener">Route planen →</a>
+    </div>
+    <div class="map reveal"><div class="dsgvo-map" data-map-src="https://maps.google.com/maps?q=Hindenburgdamm+57a%2C+12203+Berlin-Lichterfelde%2C+Berlin-Lichterfelde&z=15&output=embed"><div class="dsgvo-map-inner"><p>Hier wird eine <strong>Google-Maps</strong>-Karte geladen. Dabei werden Daten an Google &uuml;bertragen.</p><button type="button" class="dsgvo-map-btn" onclick="imprMapConsent(this)">Karte laden</button><label class="dsgvo-map-always"><input type="checkbox" class="dsgvo-map-remember"> Immer laden</label></div></div></div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="wrap">
+    <div class="f-brand"><span class="f-mark"><svg viewBox="0 0 240 240" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Himalayan Flavours Emblem">
+  <defs>
+    <linearGradient id="hfGold" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#F0D17A"/>
+      <stop offset="0.5" stop-color="#D8A24A"/>
+      <stop offset="1" stop-color="#A9772A"/>
+    </linearGradient>
+    <linearGradient id="hfGoldBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#C8A050"/>
+      <stop offset="1" stop-color="#8A6322"/>
+    </linearGradient>
+    <radialGradient id="hfSun" cx="0.5" cy="0.42" r="0.6">
+      <stop offset="0" stop-color="#D9492F"/>
+      <stop offset="1" stop-color="#A8311E"/>
+    </radialGradient>
+  </defs>
+
+  <!-- Badge -->
+  <circle cx="120" cy="120" r="117" fill="#0E0A07"/>
+  <circle cx="120" cy="120" r="116" fill="none" stroke="#D8A24A" stroke-width="2"/>
+  <circle cx="120" cy="120" r="108" fill="none" stroke="#D8A24A" stroke-width="0.8" opacity="0.45"/>
+
+  <!-- Sun -->
+  <circle cx="120" cy="96" r="23" fill="url(#hfSun)"/>
+
+  <!-- Back range -->
+  <path d="M44 150 L78 86 L104 124 L120 100 L140 70 L196 150 Z" fill="url(#hfGoldBack)" opacity="0.65"/>
+  <!-- Front range -->
+  <path d="M52 152 L92 92 L116 122 L138 84 L188 152 Z" fill="url(#hfGold)"/>
+  <!-- Snow caps -->
+  <path d="M92 92 L83 106 L90 103 L95 110 L101 100 Z" fill="#FFF6E6"/>
+  <path d="M138 84 L129 99 L136 96 L141 104 L147 93 Z" fill="#FFF6E6"/>
+
+  <!-- Steam -->
+  <g fill="none" stroke="#D8A24A" stroke-width="2.2" stroke-linecap="round" opacity="0.85">
+    <path d="M106 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M120 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+    <path d="M134 150 q-5 -9 0 -16 q5 -7 0 -14"/>
+  </g>
+
+  <!-- Bowl -->
+  <path d="M90 156 Q120 184 150 156 Z" fill="url(#hfGold)"/>
+  <ellipse cx="120" cy="156" rx="30" ry="5.5" fill="#F0D17A"/>
+  <rect x="103" y="168" width="34" height="4.5" rx="2.2" fill="url(#hfGold)"/>
+
+  <!-- Flourish line -->
+  <g stroke="#D8A24A" stroke-width="1.4" opacity="0.8">
+    <line x1="78" y1="194" x2="108" y2="194"/>
+    <line x1="132" y1="194" x2="162" y2="194"/>
+  </g>
+  <circle cx="120" cy="194" r="3" fill="#D8A24A"/>
+</svg>
+</span>Himalayan Flavours</div>
+    <p>Hindenburgdamm 57a, 12203 Berlin-Lichterfelde · 030 123 456 78</p>
+    <div class="f-links"><a href="#karte">Karte</a><a href="#haus">Das Haus</a><a href="#standort">Standort</a></div>
+    <div class="f-bottom"><span>© 2026 Himalayan Flavours</span><span>Website by IMPERAMUS</span></div>
+  </div>
+</footer>
+
+<a class="float-cta" href="tel:03012345678">☎ Anrufen</a>
+
+<script>
+// Nav-Zustand + Burger
+var nav=document.getElementById('nav');
+addEventListener('scroll',function(){nav.classList.toggle('s',scrollY>50)},{passive:true});
+var burger=document.getElementById('burger'),mov=document.getElementById('mov');
+if(burger)burger.addEventListener('click',function(){mov.classList.toggle('open')});
+if(mov)mov.querySelectorAll('a').forEach(function(a){a.addEventListener('click',function(){mov.classList.remove('open')})});
+// Glut-Partikel (rein dekorativ, pausiert bei reduced-motion via CSS)
+(function(){
+  var box=document.getElementById('embers');if(!box)return;
+  for(var i=0;i<26;i++){
+    var e=document.createElement('span');e.className='ember';
+    var s=2+Math.random()*5;
+    e.style.width=e.style.height=s+'px';
+    e.style.left=(Math.random()*100)+'%';
+    e.style.setProperty('--dx',(Math.random()*120-60)+'px');
+    e.style.animationDuration=(7+Math.random()*9)+'s';
+    e.style.animationDelay=(-Math.random()*14)+'s';
+    box.appendChild(e);
+  }
+})();
+// Reveals + Safety (kompatibel zum Video-Renderer)
+var io=new IntersectionObserver(function(es){es.forEach(function(x){if(x.isIntersecting){x.target.classList.add('in');io.unobserve(x.target)}})},{threshold:.1,rootMargin:'0px 0px -60px 0px'});
+document.querySelectorAll('.reveal').forEach(function(el){io.observe(el)});
+setTimeout(function(){document.querySelectorAll('.reveal:not(.in)').forEach(function(el){el.classList.add('in')})},2000);
+</script>
+<style>.dsgvo-map{position:relative;min-height:300px;display:flex;align-items:center;justify-content:center;background:#eef2f1;border:1px solid rgba(0,0,0,.08);border-radius:14px;text-align:center}.dsgvo-map-inner{max-width:360px;padding:24px}.dsgvo-map-inner p{font-size:.9rem;color:#333;margin:0 0 14px;line-height:1.5}.dsgvo-map-btn{background:var(--brand,#00868C);color:#fff;border:0;border-radius:999px;padding:11px 22px;font-size:.9rem;font-weight:600;cursor:pointer}.dsgvo-map-btn:hover{filter:brightness(.93)}.dsgvo-map-always{display:block;margin-top:10px;font-size:.78rem;color:#555}.dsgvo-map iframe{width:100%;height:100%;min-height:300px;border:0;border-radius:14px}</style><script>function imprMapConsent(btn){var w=btn.closest('.dsgvo-map');if(!w)return;var r=w.querySelector('.dsgvo-map-remember');var f=document.createElement('iframe');f.src=w.getAttribute('data-map-src');f.loading='lazy';f.title='Karte';f.setAttribute('referrerpolicy','no-referrer-when-downgrade');w.innerHTML='';w.appendChild(f);if(r&&r.checked){try{localStorage.setItem('impr_map_ok','1')}catch(e){}}}document.addEventListener('DOMContentLoaded',function(){try{if(localStorage.getItem('impr_map_ok')){document.querySelectorAll('.dsgvo-map-btn').forEach(function(b){imprMapConsent(b)})}}catch(e){}});</script>
+</body>
+</html>
